@@ -25,9 +25,8 @@ devices = [switch1, switch2, switch3]
 
 for device in devices:
     net_connect = ConnectHandler(**device)
-    for n in range (2,11):
-       print ("Creating VLAN " + str(n))
-       config_commands = ['vlan ' + str(n), 'name Python_VLAN ' + str(n)]
-       output = net_connect.send_config_set(config_commands)
-       print (output)
-
+    for n in range(2, 11):
+        print("Creating VLAN " + str(n))
+        config_commands = ['vlan ' + str(n), 'name Python_VLAN ' + str(n)]
+        output = net_connect.send_config_set(config_commands)
+        print(output)

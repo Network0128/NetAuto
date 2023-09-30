@@ -23,12 +23,11 @@ switch3 = {
 
 with open('switch_design') as f:
     lines = f.read().splitlines()
-print (lines)
+print(lines)
 
 devices = [switch1, switch2, switch3]
 
 for device in devices:
     net_connect = ConnectHandler(**device)
     output = net_connect.send_config_set(lines)
-    print (output)
-
+    print(output)
