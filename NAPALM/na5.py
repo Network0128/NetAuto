@@ -11,7 +11,9 @@ cmds = [
     'ip add 1.1.1.1 255.255.255.0'
 ]
 
-router.load_merge_candidate(config=cmds)
+config_str = '\n'.join(cmds)
+
+router.load_merge_candidate(config=config_str)
 
 router.commit_config()
 
@@ -20,4 +22,3 @@ output = router.get_config()
 print(output)
 
 router.close()
-
