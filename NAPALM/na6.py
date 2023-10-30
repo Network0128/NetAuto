@@ -1,7 +1,7 @@
 from napalm import get_network_driver
 
 driver = get_network_driver('ios')
-router1 = driver('10.1.1.3', 'ccnp', 'cisco',optional_args={'dest_file_system': 'flash0:'} )
+router1 = driver('10.1.1.3', 'ccnp', 'cisco',optional_args={'dest_file_system': 'nvram:'} )
 router1.open()
 
 print('Accessing 10.1.1.3')
