@@ -1,6 +1,8 @@
 from napalm import get_network_driver
 driver = get_network_driver('ios') # 'ios' : Cisco IOS 장비 사용
 switch1 = driver('10.1.1.11', 'ccnp', 'cisco') # IP 주소와 인증 정보로 연결 객체 생성
+# 필요시 위에 추가 : optional_args={'dest_file_system': 'flash0:'}
+
 switch1.open() # 장비 연결
 
 print('Accessing 10.1.1.11')
