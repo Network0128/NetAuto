@@ -1,6 +1,6 @@
 from napalm import get_network_driver
 driver = get_network_driver('ios')
-switch2 = driver('10.1.1.12', 'david', 'cisco')
+switch2 = driver('10.1.1.12', 'ccnp', 'cisco')
 switch2.open()
 
 print ('Accessing 10.1.1.12')
@@ -14,7 +14,7 @@ else:
     print('No ACL change.')
     switch2.discard_config()
 
-switch2.load_merge_candidate(filename='ospf.cfg')
+switch2.load_merge_candidate(filename='ospf1.cfg')
 
 diffs = switch2.compare_config()
 if len(diffs) > 0:
