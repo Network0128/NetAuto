@@ -13,7 +13,7 @@ if len(diffs) > 0:
     print(diffs)
     router1.commit_config()
 else:
-    print('No changes.')
+    print('No change : ACL, loopback')
     router1.discard_config()
 
 router1.close()
