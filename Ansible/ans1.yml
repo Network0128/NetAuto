@@ -1,6 +1,8 @@
 ---
 
 - hosts: gns3
+  gather_facts: True
+  gather_subset: min
   tasks:
   - name: Create User {{ user }}
     ansible.builtin.user:
