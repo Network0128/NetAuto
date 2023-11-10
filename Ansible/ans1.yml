@@ -1,0 +1,8 @@
+---
+
+- hosts:gns3
+  tasks:
+    - name: Create {{ user }}
+      ansible.builtin.user:
+        name: "{{ user  }}"
+        state: present
