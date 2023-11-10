@@ -4,8 +4,9 @@
   gather_facts: no
   tasks:
   - name: Create User {{ user }}
-    cisco.ios.ios.user:
+    cisco.ios.ios_user:
       name: "{{ user  }}"
       privilege: 15
-      password: "{{ password }}"
+      configured_password: "{{ password }}"
       state: present
+    no_log: true
