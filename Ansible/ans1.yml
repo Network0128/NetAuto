@@ -1,10 +1,11 @@
 ---
 
 - hosts: gns3
-  gather_facts: True
-  gather_subset: min
+  gather_facts: no
   tasks:
   - name: Create User {{ user }}
-    ansible.builtin.user:
+    cisco.ios.ios.user:
       name: "{{ user  }}"
+      privilege: 15
+      password: "{{ password }}"
       state: present
