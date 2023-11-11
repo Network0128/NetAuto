@@ -1,5 +1,4 @@
 ---
-
 - hosts: gns3
   gather_facts: no
   tasks:

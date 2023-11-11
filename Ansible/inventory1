@@ -1,0 +1,19 @@
+[routers]
+R1 ansible_host=10.1.1.3
+
+[switches]
+S1 ansible_host=10.1.1.11
+S2 ansible_host=10.1.1.12 
+S3 ansible_host=10.1.1.13
+
+[gns3:children]
+routers
+switches
+
+[gns3:vars]
+ansible_user=ccnp
+ansible_password=cisco
+ansible_connection=network_cli
+ansible_network_os=ios
+user=ansible
+password=cisco

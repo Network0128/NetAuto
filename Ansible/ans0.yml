@@ -1,0 +1,7 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Print message
+    debug: #화면에 출력해주는 모듈
+      msg: Hello World!
