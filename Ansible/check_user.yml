@@ -1,0 +1,12 @@
+- hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Check if user {{ user }} exists
+      cisco.ios.ios_command:
+        commands:
+          - show running-config | include username
+      register: result
+
+    - name: Show the result
+      debug:
+        var: result.stdout_lines

@@ -9,3 +9,4 @@
       configured_password: "{{ password }}"
       state: present
     no_log: true
+
