@@ -1,0 +1,19 @@
+---
+- hosts: switches #host 수정
+  gather_facts: no
+  vars: #play 변수 추가
+    user: ansible2
+  tasks:
+    - name: Check if user {{ user }} exists
+      cisco.ios.ios_command:
+        commands:
+          - "show run | in username {{ user }}"
+      register: result
+
+    - name: "Show the user : {{ user }}"
+      debug:
+        var: user
+
+    - name: Show only {{ user }} users in the results
+      debug:
+        var: result.stdout_lines

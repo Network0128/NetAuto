@@ -1,3 +1,4 @@
+---
 - hosts: routers #host 수정
   gather_facts: no
   tasks:
