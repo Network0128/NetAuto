@@ -1,4 +1,4 @@
-- hosts: routers
+- hosts: routers #host 수정
   gather_facts: no
   tasks:
     - name: Check if user {{ user }} exists
