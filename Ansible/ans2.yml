@@ -1,5 +1,5 @@
 ---
-- hosts: gns3
+- hosts: routers #host만 수정
   gather_facts: no
   tasks:
   - name: Create User {{ user }}
@@ -9,4 +9,3 @@
       configured_password: "{{ password }}"
       state: present
     no_log: true
-

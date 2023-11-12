@@ -1,6 +1,8 @@
 ---
-- hosts: gns3
+- hosts: switches #hosts 수정
   gather_facts: no
+  vars: #play 변수 추가
+    user: ansible2
   tasks:
   - name: Create User {{ user }}
     cisco.ios.ios_user:
@@ -9,4 +11,3 @@
       configured_password: "{{ password }}"
       state: present
     no_log: true
-

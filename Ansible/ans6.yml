@@ -1,0 +1,16 @@
+---
+- hosts: gns3
+  gather_facts: no
+  tasks:
+  - name: Create User {{ user }}
+    cisco.ios.ios_user:
+      name: "{{ user }}"
+      privilege: 15
+      configured_password: "{{ password }}"
+      state: present
+    no_log: true
+    register: result #작업 변수 추가
+
+  - name : "Print {{ user }}'s result"
+    ansible.builtin.debug: #ansible 2.10 이상 버전부터 사용되는 형식, debug와 같다.
+      msg: "{{ user }}'s result: {{ result }}" #작업 변수 출력

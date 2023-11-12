@@ -1,6 +1,8 @@
 ---
-- hosts: gns3
+- hosts: gns3 #host 수정
   gather_facts: no
+  vars_files: #play 변수를 별도 파일에 분리
+    - var/user.yml
   tasks:
   - name: Create User {{ user }}
     cisco.ios.ios_user:
@@ -9,4 +11,3 @@
       configured_password: "{{ password }}"
       state: present
     no_log: true
-
