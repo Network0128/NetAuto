@@ -1,0 +1,17 @@
+---
+- hosts: gns3
+  gather_facts: no
+  vars_files:
+    - var/user.yml
+  tasks:
+    - name: Check if user {{ user }} exists
+      cisco.ios.ios_command:
+        commands:
+          - "show run | in username {{ user }}"
+      register: result
+
+    - name: Show the user and the result
+      debug:
+        msg:
+          - "User: {{ user }}"
+          - "Result: {{ result.stdout_lines }}"
