@@ -1,7 +1,7 @@
 ---
 - name: Get MAC address table information
   hosts: all
-  gather_facts: false
+  gather_facts: no
 
   tasks:
     - name: Show MAC address table

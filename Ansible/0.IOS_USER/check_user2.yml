@@ -3,7 +3,7 @@
   gather_facts: no
   tasks:
     - name: Check if user {{ user }} exists
-      cisco.ios.ios_command:
+      cisco.ios.ios_command: #ansible.netcommon.cli_command: 사용 권장
         commands:
           - show running-config | include username
       register: result

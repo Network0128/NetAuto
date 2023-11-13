@@ -5,7 +5,7 @@
     user: ansible2
   tasks:
   - name: Create User {{ user }}
-    cisco.ios.ios_user:
+    cisco.ios.ios_user: #cisco.ios.ios_l2_interfaces: 권장
       name: "{{ user }}"
       privilege: 15
       configured_password: "{{ password }}"

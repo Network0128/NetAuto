@@ -5,7 +5,7 @@
     user: ansible2
   tasks:
     - name: Check if user {{ user }} exists
-      cisco.ios.ios_command:
+      cisco.ios.ios_command: #ansible.netcommon.cli_command: 사용 권장
         commands:
           - "show run | in username {{ user }}"
       register: result
