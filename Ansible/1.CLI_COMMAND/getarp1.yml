@@ -1,0 +1,14 @@
+---
+- name: Get ARP information
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Show arp
+      ansible.netcommon.cli_command: #컬렉션 설치 : ansible-galaxy collection install ansible.netcommon
+        command: show arp
+      register: print_output
+
+    - name: Print output
+      ansible.builtin.debug:
+        var: print_output.stdout_lines
