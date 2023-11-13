@@ -5,7 +5,7 @@
 
   tasks:
     - name: Show arp
-      ansible.netcommon.cli_command: #컬렉션 설치 : ansible-galaxy collection install ansible.netcommon
+      ansible.netcommon.cli_command: #해당 컬렉션 이미 설치 되어 있음
         command: show arp
       register: print_output
 
