@@ -7,8 +7,8 @@
     - name: Show arp
       ansible.netcommon.cli_command: #해당 컬렉션 이미 설치 되어 있음
         command: show arp
-      register: print_output
+      register: result
 
-    - name: Print output
+    - name: Result of show arp command
       ansible.builtin.debug:
-        var: print_output.stdout_lines
+        var: result.stdout_lines
