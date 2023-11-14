@@ -11,8 +11,7 @@
 
     - name: Print 'show version' output
       ansible.builtin.debug:
-        #var: result_version.stdout
-        msg: "\n--- 'show version' output ---\n{{ result_version.stdout.split('\n') | join('\n') }}\n---------------------------"
+        var: result_version.stdout_lines
 
     - name: Run 'show ip int brief' command
       ansible.netcommon.cli_command:
@@ -21,5 +20,4 @@
 
     - name: Print 'show ip int brief' output
       ansible.builtin.debug:
-        #var: result_ip.stdout
-        msg: "\n--- 'show ip int brief' output ---\n{{ result_ip.stdout.split('\n') | join('\n') }}\n------------------------------"
+        var: result_ip.stdout_lines

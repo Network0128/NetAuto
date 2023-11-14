@@ -11,10 +11,10 @@
       loop: #반복문
         - show version
         - show ip int brief
-      register: result
+      register: output
       loop_control:
         extended: yes
 
     - name: Print output
       ansible.builtin.debug:
-        var: result.results
+        var: output.results
