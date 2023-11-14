@@ -12,7 +12,9 @@
         - show version
         - show ip int brief
       register: result
+      loop_control:
+        extended: yes
 
     - name: Print output
       ansible.builtin.debug:
-        var: result.stdout_lines
+        var: result.results
