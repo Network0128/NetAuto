@@ -7,6 +7,7 @@
     - name: Run multiple commands on remote nodes
       ansible.netcommon.cli_command:
         command: "{{ item }}"
+        #{{ item }}: 실행할 명령어 정의, loop에서 정의한 명령 리스트의 각 항목을 참조
       loop:
         - show version
         - show ip int brief
