@@ -16,4 +16,5 @@
     - name: Print command outputs
       ansible.builtin.debug:
         msg: "{{ item.stdout_lines }}"
-      loop: "{{ output.results }}"
+      loop: "{{ output.results }}" #output.results에 저장된 각 결과에 대해 작업을 반복
+      #output.results 변수 : 위 ( register: output ) 구문의 결과값
