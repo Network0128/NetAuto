@@ -1,6 +1,6 @@
 ---
 - name: Show version and Show ip int br
-  hosts: all
+  hosts: routers
   gather_facts: no
 
   tasks:
