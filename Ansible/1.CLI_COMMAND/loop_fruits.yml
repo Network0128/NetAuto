@@ -1,0 +1,14 @@
+---
+- name: Fruit Printing Playbook
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: Print each fruit
+      ansible.builtin.debug:
+        msg: "The current fruit is: {{ item }}"
+      loop:
+        - Apple
+        - Banana
+        - Cherry
+
