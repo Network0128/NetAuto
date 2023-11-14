@@ -16,4 +16,4 @@
     - name: Print command outputs
       ansible.builtin.debug:
         msg: "{{ item.stdout_lines }}"
-        loop: "{{ output.results }}"
+      loop: "{{ output.results }}"
