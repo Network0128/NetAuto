@@ -1,0 +1,17 @@
+---
+- name: Gather Cisco IOS facts
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+        gather_subset: all
+
+    - name: Print IOS version
+      ansible.builtin.debug:
+        var: ansible_net_version #팩트변수
+
+    - name: Print interfaces
+      ansible.builtin.debug:
+        var: ansible_net_interfaces #팩트변수

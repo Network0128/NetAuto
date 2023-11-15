@@ -1,0 +1,21 @@
+---
+- name: Gather Cisco IOS facts and use magic variables
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+        gather_subset: all
+
+    - name: Print host's IOS version
+      ansible.builtin.debug:
+        var: ansible_net_version #팩트변수
+
+    - name: Print play's hosts
+      ansible.builtin.debug:
+        var: ansible_play_hosts #매직변수 : Ansible이 플레이북을 실행하는 동안 자동으로 설정하는 변수
+
+    - name: Print play's batch size
+      ansible.builtin.debug:
+        var: ansible_play_batch #매직변수
