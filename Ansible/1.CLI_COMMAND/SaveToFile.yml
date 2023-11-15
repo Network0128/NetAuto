@@ -6,7 +6,7 @@
   tasks:
     - name: Run single command on remote nodes
       ansible.netcommon.cli_command:
-        command_string: show version
+        command: show version
       # 안될경우 사용
       # ios_command:
       #  commands: show version

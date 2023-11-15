@@ -6,7 +6,7 @@
   vars:
     commands:
       - show ip int br
-      - sh run
+      - sh version
 
   tasks:
     - name: Run multiple commands on remote nodes

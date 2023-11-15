@@ -1,0 +1,17 @@
+--- #최대한 simple
+- name: Backup show run
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_become: yes
+    ansible_become_method: enable
+
+  tasks:
+    - ios_command:
+        commands: show run
+      register: output
+
+    - copy:
+        content: "{{ output.stdout[0] }}"
+        dest: "./output/{{ inventory_hostname }}.txt"

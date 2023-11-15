@@ -8,7 +8,7 @@
       cisco.ios.ios_command:
         commands:
           - show ip int br
-          - sh run
+          - sh version
       register: output
 
     - name: Debug print output
