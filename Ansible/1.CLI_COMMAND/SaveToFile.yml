@@ -1,13 +1,15 @@
-- name: Backup show version and other user level commands
+---
+- name: Backup show version
   hosts: all
   gather_facts: no
-  connection: local #Ansible이 설치된 로컬(제어) 호스트에서 작업 수행
 
   tasks:
-    - name: Run multiple commands on remote nodes
+    - name: Run single command on remote nodes
       ansible.netcommon.cli_command:
-        command_string:
-          - show version
+        command_string: show version
+      # 안될경우 사용
+      # ios_command:
+      #  commands: show version
       register: output
 
     - name: Debug print output
@@ -18,3 +20,4 @@
       ansible.builtin.copy: #파일 복사 모듈
         content: "{{ output.stdout[0] }}" #복사할 파일의 내용을 지정
         dest: "./output/{{ inventory_hostname }}.txt" #원격 위치 지정
+

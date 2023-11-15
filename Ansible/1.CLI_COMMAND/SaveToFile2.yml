@@ -1,0 +1,27 @@
+---
+- name: Backup sh run and sh ip int br
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Run multiple commands on remote nodes
+      cisco.ios.ios_command:
+        commands:
+          - show ip int br
+          - sh run
+      register: output
+
+    - name: Debug print output
+      ansible.builtin.debug:
+        var: output.stdout_lines
+
+    - name: Save show ip int br output to a file
+      ansible.builtin.copy:
+        content: "{{ output.stdout[0] }}" #show ip int br
+        dest: "./output/{{ inventory_hostname }}_show_ip_int_br.txt"
+
+    - name: Save sh run output to a file
+      ansible.builtin.copy:
+        content: "{{ output.stdout[1] }}" #sh run
+        dest: "./output/{{ inventory_hostname }}_sh_run.txt"
+
