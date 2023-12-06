@@ -1,4 +1,4 @@
-#UbuntuDocker → R1
+#Ubuntu → R1
 import getpass
 import telnetlib
 

@@ -1,13 +1,12 @@
-#Ubuntu → S1
 import getpass
 import telnetlib
 
 HOST = "10.1.1.11"
-user = input("Enter your remote account: ")
-
+user = input("Enter your telnet username: ")
 password = getpass.getpass()
 
 tn = telnetlib.Telnet(HOST)
+
 tn.read_until(b"Username: ")
 tn.write(user.encode('ascii') + b"\n")
 if password:
@@ -15,16 +14,12 @@ if password:
     tn.write(password.encode('ascii') + b"\n")
 
 tn.write(b"conf t\n")
-tn.write(b"vlan 2\n")
-tn.write(b"name Python_VLAN_2\n")
-tn.write(b"vlan 3\n")
-tn.write(b"name Python_VLAN_3\n")
-tn.write(b"vlan 4\n")
-tn.write(b"name Python_VLAN_4\n")
-tn.write(b"vlan 5\n")
-tn.write(b"name Python_VLAN_5\n")
+for n in range (2,11):
+    tn.write(b"vlan " + str(n).encode('ascii') + b"\n")
+    tn.write(b"name Python_VALN_" + str(n).encode('ascii') + b"\n")
+
 tn.write(b"end\n")
-tn.write(b"sh vlan br\n")
+tn.write(b"sh vl br\n")
 tn.write(b"wr\n")
 tn.write(b"exit\n")
 
