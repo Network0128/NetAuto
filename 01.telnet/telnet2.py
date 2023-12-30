@@ -1,4 +1,4 @@
-#Ubuntu To S1
+#Ubuntu To SW1
 import getpass
 import telnetlib
 
@@ -14,6 +14,7 @@ if password:
     tn.read_until(b"Password: ")
     tn.write(password.encode('ascii') + b"\n")
 
+tn.write(b"sh vlan br\n")
 tn.write(b"conf t\n")
 tn.write(b"vlan 2\n")
 tn.write(b"name Python_VLAN_2\n")
