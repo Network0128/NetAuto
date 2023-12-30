@@ -7,6 +7,7 @@ user = input("Enter your telnet username: ")
 password = getpass.getpass()
 
 f = open('myswitches')
+#f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
 
 for IP in f:
     IP = IP.strip()
