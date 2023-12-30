@@ -1,4 +1,4 @@
-#Ubuntu → S1
+#Ubuntu To S1
 import getpass
 import telnetlib
 
