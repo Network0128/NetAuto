@@ -1,3 +1,4 @@
+#Ubuntu To SW1 : Using loop
 import getpass
 import telnetlib
 
