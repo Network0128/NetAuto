@@ -1,4 +1,4 @@
-#Ubuntu → R1
+#Ubuntu To R1
 import getpass
 import telnetlib
 
