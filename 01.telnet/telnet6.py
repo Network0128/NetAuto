@@ -1,4 +1,5 @@
-#telnet5.py의 가독성을 높이기 위해 수정합니다.
+#Ubuntu To multiple switch
+#가독성을 높이기 위해 telnet5.py를 수정(with문 사용)
 import getpass
 import telnetlib
 
