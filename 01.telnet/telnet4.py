@@ -6,8 +6,13 @@ HOST = "localhost"
 user = input("Enter your telnet username: ")
 password = getpass.getpass()
 
-f = open('myswitches') #relative Path
-#Absolute Path : f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
+#import os //relative Path : 1
+#os.chdir('/home/ubuntu/PythonHome/1.telnet') //relative Path : 2
+f = open('myswitches') #relative Path : 3
+
+#Absolute Path 
+#f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
+
 
 for IP in f:
     IP = IP.strip()
