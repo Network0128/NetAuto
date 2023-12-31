@@ -13,7 +13,6 @@ f = open('myswitches') #relative Path : 3
 #Absolute Path 
 #f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
 
-
 for IP in f:
     IP = IP.strip()
     print('Configuring Switch ' + IP)
