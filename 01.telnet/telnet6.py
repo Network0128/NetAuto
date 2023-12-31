@@ -11,6 +11,7 @@ with open('myswitches') as f:
     # 파일의 각 줄을 아래와 같이 반복
     for IP in f:
         IP = IP.strip()
+        # f-string 문자열 포매팅 방식 : 문자열 내에 중괄호 {}를 사용해 변수나 표현식을 직접 삽입
         print(f'Get running Config from Switch {IP}')
         
         tn = telnetlib.Telnet(IP)
