@@ -22,7 +22,7 @@ for IP in f:
     #출력을 읽음
     readoutput = tn.read_all()
     #출력을 파일에 저장
-    saveoutput = open('switch' + HOST,'w')
+    saveoutput = open('switch' + IP,'w')
     saveoutput.write(readoutput.decode('ascii'))
     saveoutput.write('\n')
     saveoutput.close()
