@@ -34,5 +34,6 @@ for IP in f:
     tn.write(b"vlan 5\n")
     tn.write(b"name Python_VLAN_5\n")
     tn.write(b"end\n")
+    tn.write(b"wr\n")
     tn.write(b"exit\n")
     print(tn.read_all().decode('ascii'))
