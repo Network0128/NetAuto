@@ -2,13 +2,12 @@
 import getpass
 import telnetlib
 
-# 사용자 이름과 비밀번호를 입력받습니다.
 user = input("Enter your telnet username: ")
 password = getpass.getpass("Enter your telnet password: ")
 
-# 'myswitches' 파일을 엽니다.
+# 'myswitches' 파일 오픈
 with open('myswitches') as f:
-    # 파일의 각 줄에 대해 반복합니다.
+    # 파일의 각 줄을 아래와 같이 반복
     for IP in f:
         IP = IP.strip()
         print(f'Get running Config from Switch {IP}')
@@ -25,7 +24,7 @@ with open('myswitches') as f:
         
         readoutput = tn.read_all()
         
-        # 출력을 파일에 저장합니다.
+        # 출력을 파일에 저장
         with open(f'switch{IP}', 'w') as saveoutput:
             saveoutput.write(readoutput.decode('ascii'))
             saveoutput.write('\n')

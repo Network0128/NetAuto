@@ -2,22 +2,16 @@
 import getpass
 import telnetlib
 
-HOST = "localhost"
 user = input("Enter your telnet username: ")
-password = getpass.getpass()
+password = getpass.getpass("Enter your telnet password: ")
 
-#import os //relative Path : 1
-#os.chdir('/home/ubuntu/PythonHome/1.telnet') //relative Path : 2
-f = open('myswitches') #relative Path : 3
-
-#Absolute Path 
-#f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
+f = open('myswitches') #relative Path
+#Absolute Path : f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
 
 for IP in f:
     IP = IP.strip()
     print('Configuring Switch ' + IP)
-    HOST = IP
-    tn = telnetlib.Telnet(HOST)
+    tn = telnetlib.Telnet(IP)
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
     if password:

@@ -3,9 +3,8 @@ import getpass
 import telnetlib
 
 HOST = "10.1.1.11"
-user = input("Enter your remote account: ")
-
-password = getpass.getpass()
+user = input("Enter your telnet username: ")
+password = getpass.getpass("Enter your telnet password: ")
 
 tn = telnetlib.Telnet(HOST)
 tn.read_until(b"Username: ")
