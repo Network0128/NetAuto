@@ -4,7 +4,7 @@ import getpass  # 비밀번호 입력을 위한 라이브러리 임포트
 from pexpect import pxssh  # SSH 접속을 위한 라이브러리 임포트
 
 # 각 장비의 프롬프트와 IP 정보를 딕셔너리로 저장
-devices = {'R1': {'prompt': 'R1#', 'ip': '10.1.1.3'},
+devices = {'R1': {'prompt': 'R1#', 'ip': '10.1.1.21'},
            'S1': {'prompt': 'S1#', 'ip': '10.1.1.11'}}
 
 # 실행할 커맨드들을 리스트로 저장
