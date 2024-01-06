@@ -18,6 +18,3 @@ print(tn.before.decode('ascii'))  # 출력 결과 디코딩 후 출력
 
 tn.sendline('exit')  # 종료 커맨드 전송
 tn.close()  # 세션 종료
-
-
-#pexpect 라이브러리를 사용하여 Telnet 세션을 생성하고, 사용자 이름과 비밀번호를 전송하며, 명령 'show ip int br'을 실행하고 그 결과를 출력한 후에 세션을 종료합니다.
