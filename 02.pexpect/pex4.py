@@ -2,7 +2,7 @@
 
 import pexpect  # pexpect 라이브러리 임포트
 
-ssh_session = pexpect.spawn("ssh ccnp@10.1.1.3")  # SSH 세션을 위한 pexpect 생성 객체
+ssh_session = pexpect.spawn("ssh ccnp@10.1.1.21")  # SSH 세션을 위한 pexpect 생성 객체
 
 ssh_session.expect("Password:")  # 비밀번호 프롬프트 대기
 
