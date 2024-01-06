@@ -3,7 +3,7 @@ from pexpect import pxssh  # pexpect 모듈에서 pxssh 클래스 임포트
 
 sh = pxssh.pxssh()  # pxssh 객체 생성
 
-sh.login('10.1.1.3', 'ccnp', 'cisco', auto_prompt_reset=False) # 로그인 (호스트 주소, 사용자 이름, 비밀번호 입력)
+sh.login('10.1.1.21', 'ccnp', 'cisco', auto_prompt_reset=False) # 로그인 (호스트 주소, 사용자 이름, 비밀번호 입력)
 
 sh.sendline('show ip int br')  # 'show ip int br' 커맨드 전송
 
