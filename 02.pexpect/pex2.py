@@ -1,3 +1,4 @@
+#Python의 pexpect 모듈을 사용하여 특정 호스트에 Telnet 접속을 하고, 여러 명령어를 실행한 후 그 결과를 'RunningConfig'라는 이름의 로그 파일에 저장하는 것을 자동화
 import pexpect  # pexpect 라이브러리 임포트
 
 host = '10.1.1.21'  # 호스트 주소
