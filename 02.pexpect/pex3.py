@@ -6,8 +6,7 @@ host = ['10.1.1.21','10.1.1.11']
 
 # 연결할 장비와 해당 장비의 프롬프트, IP 주소
 devices={'R1':{'prompt':'R1#','ip':host[0]},
-         'S1':{'prompt':'S1#','ip':host[1]}
-}
+         'S1':{'prompt':'S1#','ip':host[1]}}
 
 username = 'ccnp'  # Telnet 접속 사용자 이름
 password = 'cisco'  # Telnet 접속 비밀번호
