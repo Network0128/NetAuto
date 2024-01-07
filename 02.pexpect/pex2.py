@@ -17,7 +17,7 @@ tn.expect('R1#')  # 커맨드 프롬프트 기다림
 
 cmd_list=['conf t','do show run','end']  # 실행할 커맨드 리스트
 
-for cmd in cmd_list:  # 커맨드 리스트 순회
+for cmd in cmd_list:  # 커맨드 리스트 반복
     tn.sendline(cmd)  # 각 커맨드 전송
 
 tn.expect('R1#')  # 커맨드 프롬프트 기다림
