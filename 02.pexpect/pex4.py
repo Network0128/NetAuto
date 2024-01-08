@@ -8,11 +8,11 @@ ssh_session.expect("Password:")  # 비밀번호 프롬프트 대기
 
 ssh_session.sendline("cisco")  # 비밀번호 전송
 
-ssh_session.expect("R1#")  # 쉘 프롬프트 대기
+ssh_session.expect("R1#")  # 프롬프트 대기
 
 ssh_session.sendline("sh ip int br")  # 커맨드 전송
 
-ssh_session.expect("R1#")  # 커맨드 출력 대기
+ssh_session.expect("R1#")  # 프롬프트 대기
 
 print(ssh_session.before.decode())  # 출력 결과 디코딩 후 출력
 
