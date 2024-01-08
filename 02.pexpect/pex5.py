@@ -7,7 +7,7 @@ sh.login('10.1.1.21', 'ccnp', 'cisco', auto_prompt_reset=False) # 로그인 (호
 
 sh.sendline('show ip int br')  # 'show ip int br' 커맨드 전송
 
-sh.expect('R1#')  # 커맨드 출력 대기
+sh.expect('R1#')  # 커맨드 프롬프트 기다림
 
 print(sh.before.decode())  # 출력 결과 디코딩 후 출력
 
