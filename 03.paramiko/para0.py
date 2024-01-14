@@ -1,5 +1,4 @@
-#Juppiter Note book이나 프롬프트에서 실행
-
+#Juppiter Note book에서 실행, 혹은 프롬프트에서 줄단위 실행
 import paramiko
 
 ssh = paramiko.SSHClient() # SSH 클라이언트 객체 생성
