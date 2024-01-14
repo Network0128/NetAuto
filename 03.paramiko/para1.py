@@ -1,3 +1,5 @@
+#Juppiter Note book이나 프롬프트에서 실행
+
 import paramiko
 
 ssh = paramiko.SSHClient() # SSH 클라이언트 객체 생성
@@ -10,12 +12,6 @@ ssh.connect('10.1.1.21', username='ccnp', password='cisco') # SSH 연결 설정
 # 명령(sh ip int br) 실행, 결과를 각 스트림(stdin, stdout, stderr)에 저장
 stdin, stdout, stderr = ssh.exec_command('sh ip int br')
 
-# 실행 결과를 읽어서 저장
-output = stdout.read()
+print(stdout.read().decode()) # 실행 결과를 읽어서 화면에 출력
 
-# SSH 연결 종료
-ssh.close()
-
-# 실행 결과를 출력
-print(output.decode())
-
+ssh.close() # SSH 연결 종료
