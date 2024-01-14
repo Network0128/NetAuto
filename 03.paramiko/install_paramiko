@@ -1,0 +1,15 @@
+apt-get update
+apt-get install -y python3
+apt-get install -y python3 python3-pip #pip3 패키지 설치
+
+pip3 install cryptography #cryptography 패키지 설치 : 암호화 방법과 기본 요소를 제공하는 패키지
+pip3 install paramiko #paramiko 패키지 설치
+pip3 install --upgrade paramiko #paramiko 패키지 업그레이드
+
+※ 의존성 문제로 설치가 안 될 경우 추가 실행
+apt-get install python3-dev #Python 3의 개발 환경을 구축하기 위한 패키지
+apt-get install build-essential libssl-dev libffi-dev python3-dev #설치되는 패키지들은 파이썬 모듈을 설치하거나 컴파일하는 데 활용
+#build-essential : C/C++ 컴파일러와 관련된 도구
+#libssl-dev : OpenSSL 라이브러리 개발 환경 구성
+#libffi-dev : libffi 라이브러리 개발 환경 구성
+#python3-dev :  파이썬 개발 환경을 구성시 필요한 라이브러리들 설치
