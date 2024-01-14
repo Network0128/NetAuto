@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get install openssh-server #OpenSSH 서버 설치
 
 sudo nano /etc/ssh/sshd_config
- PasswordAuthontication yes #주석 해제, 혹은 yes로 변경
+ PasswordAuthontication yes #좌측 설정 주석 해제, 혹은 yes로 변경
  
 sudo service ssh restart #SSH 서비스 재시작
 
