@@ -1,6 +1,7 @@
 #para1.py와 기능이 같음
 #'router' 딕셔너리를 사용하여 원격 서버의 정보를 관리하는 방식
-#'router' 딕셔너리를 만들고 이를 'ssh_client.connect()' 메소드에 전달할 때 '**' 연산자를 사용하여 딕셔너리의 키-값 쌍을 인자로 전달하는 것이 특징
+#'router' 딕셔너리를 만들고 이를 'ssh_client.connect()' 메소드에 전달할 때 '**' 연산자를 사용
+#딕셔너리의 키-값 쌍을 인자로 전달
 
 import paramiko,time 
 
