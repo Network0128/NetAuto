@@ -1,3 +1,5 @@
+#대상 장비와 명령어를 별도의 파일로 분리
+
 import paramiko, getpass, time, json
 
 with open('devices.json', 'r') as f:  #'devices.json'에서 데이터를 읽어와 devices 딕셔너리에 저장
@@ -11,6 +13,7 @@ password = getpass.getpass('Password: ')
 
 
 #아래부터 나머지 코드는 para4.py와 같음
+
 max_buffer = 65535  # 네트워크 장비로부터 수신할 최대 버퍼(데이터) 크기 지정
 
 def clear_buffer(new_connection):  # SSH 연결로부터 데이터를 읽어오는 함수
