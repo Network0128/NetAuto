@@ -2,7 +2,7 @@
 
 import paramiko, getpass, time
 
-devices = {'R1': {'ip': '10.1.1.3'},'S1': {'ip': '10.1.1.11'}}  # 연결할 장비의 이름과 IP 주소
+devices = {'R1': {'ip': '10.1.1.21'},'S1': {'ip': '10.1.1.11'}}  # 연결할 장비의 이름과 IP 주소
 commands = ['show ip int br\n', 'show run\n']  # 실행할 명령어들
 
 username = input('Username: ')  # 사용자 이름 입력 받기
