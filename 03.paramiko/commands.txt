@@ -1,3 +1,5 @@
+#para5.py에서 필요한 파일
+
 terminal length 0
 sh run
 config t
