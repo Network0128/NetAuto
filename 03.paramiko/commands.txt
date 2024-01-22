@@ -1,0 +1,5 @@
+terminal length 0
+sh run
+config t
+end
+copy run start
