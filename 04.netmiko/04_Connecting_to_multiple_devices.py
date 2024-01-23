@@ -5,7 +5,7 @@ password = getpass()
 
 router1 = {
     "device_type": "cisco_ios",
-    "host": "10.1.1.3",
+    "host": "10.1.1.2",
     "username": "ccnp",
     "password": password,
 }
