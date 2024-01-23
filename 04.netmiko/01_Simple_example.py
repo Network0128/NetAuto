@@ -8,7 +8,7 @@ net_connect = ConnectHandler(
     password=getpass()
 )
 
-output = net_connect.send_command("show ip int brief") 
+output = net_connect.send_command("show ip int brief") #send_command: 관리자 모드의 명령어를 보내는데 사용
 print(output)
 output = net_connect.send_command("show run") 
 print(output)
