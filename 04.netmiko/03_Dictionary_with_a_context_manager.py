@@ -3,7 +3,7 @@ from getpass import getpass
 
 router1 = {
     "device_type": "cisco_ios",
-    "host": "10.1.1.3",
+    "host": "10.1.1.ㅈ",
     "username": "ccnp",
     "password": getpass(),
 }
