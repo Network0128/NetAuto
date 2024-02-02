@@ -3,7 +3,7 @@ import getpass  # 필요한 라이브러리 임포트
 import telnetlib
 
 HOST = "10.1.1.21"  # 텔넷 서버 호스트 주소 설정
-user = input("Enter your remote account: ")  # 사용자 원격 계정 입력 받음
+user = input("Enter your telnet username: ")  # 사용자 원격 계정 입력 받음
 password = getpass.getpass()  # 비밀번호 안전하게 입력 받음
 
 tn = telnetlib.Telnet(HOST)  # 지정된 호스트로 텔넷 연결 시작
