@@ -4,7 +4,9 @@ import telnetlib
 
 HOST = "10.1.1.21"  # 텔넷 서버 호스트 주소 설정
 user = input("Enter your telnet username: ")  # 사용자 원격 계정 입력 받음
-password = getpass.getpass()  # 비밀번호 안전하게 입력 받음
+password = getpass.getpass()  # 사용자에게 비밀번호 입력을 요청할 때 "Password: "라는 프롬프트가 화면에 표시
+
+#password = getpass.getpass("Enter your telnet password: ") 사용자에게 "Enter your telnet password: "라고 표시
 
 tn = telnetlib.Telnet(HOST)  # 지정된 호스트로 텔넷 연결 시작
 
