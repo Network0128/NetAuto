@@ -15,9 +15,9 @@ if password:
     tn.write(password.encode('ascii') + b"\n")
 
 tn.write(b"conf t\n")
-for n in range (2,11):
-    tn.write(b"vlan " + str(n).encode('ascii') + b"\n")
-    tn.write(b"name Python_VALN_" + str(n).encode('ascii') + b"\n")
+for n in range(2, 11):  # 2부터 10까지 반복
+    tn.write(b"vlan " + str(n).encode('ascii') + b"\n")  # VLAN 구성 명령어 전송
+    tn.write(b"name Python_VLAN_" + str(n).encode('ascii') + b"\n")  # VLAN 이름 설정 명령어 전송
 
 tn.write(b"end\n")
 tn.write(b"sh vl br\n")
