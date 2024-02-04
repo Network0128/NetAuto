@@ -1,10 +1,13 @@
 vtp mode transparent
 
+cdp disable
+lldp disable
+
 spanning-tree mode rapid-pvst
 spanning-tree portfast bpduguard default
 
 ip name-server 8.8.8.8
-ip default-gateway 10.1.1.1
+ip default-gateway 10.1.1.254
 
 vlan 100
  name Data
