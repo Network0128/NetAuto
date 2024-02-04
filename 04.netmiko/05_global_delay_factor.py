@@ -1,3 +1,6 @@
+# Cisco IOS 장비에 연결하여 "show ip arp" 명령어를 실행하고 그 결과를 출력합니다.
+# 다양한 네트워크 환경에서 느린 장비의 응답을 관리하기 위해 "global_delay_factor": 2 를 사용합니다.
+
 from netmiko import ConnectHandler
 from getpass import getpass
 
