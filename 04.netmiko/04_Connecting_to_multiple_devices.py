@@ -1,3 +1,5 @@
+#Netmiko를 사용하여 여러 Cisco 장비에 대해 "show ip int brief" 명령을 실행합니다.
+
 from netmiko import ConnectHandler
 from getpass import getpass
 
@@ -5,7 +7,7 @@ password = getpass()
 
 router1 = {
     "device_type": "cisco_ios",
-    "host": "10.1.1.2",
+    "host": "10.1.1.21",
     "username": "ccnp",
     "password": password,
 }
