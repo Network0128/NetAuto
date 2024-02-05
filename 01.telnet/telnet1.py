@@ -12,6 +12,7 @@ tn = telnetlib.Telnet(HOST)  # 지정된 호스트로 텔넷 연결 시작
 
 # 바이트 타입 데이터 : 주로 파일 입출력, 네트워크 통신, 바이너리 데이터 처리 등에서 사용
 # ASCII 인코딩 : string 타입 → byte 타입 
+# string <-> byte(ascii) <-> string
 
 tn.read_until(b"Username: ")  # 사용자 이름 입력 대기
 tn.write(user.encode('ascii') + b"\n")  # 사용자 이름 전송
