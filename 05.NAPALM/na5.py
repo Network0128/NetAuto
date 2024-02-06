@@ -1,15 +1,20 @@
-from napalm import get_network_driver
-driver = get_network_driver('ios') # 'ios' : Cisco IOS 장비 사용
-switch1 = driver('10.1.1.11', 'ccnp', 'cisco') # IP 주소와 인증 정보로 연결 객체 생성
-# 필요시 위에 추가 : optional_args={'dest_file_system': 'flash0:'}
+#NAPALM 라이브러리를 사용하여 Cisco IOS 스위치에 연결하고, 'Merge1.cfg' 파일에 정의된 새로운 설정을 현재 구성과 병합하는 과정을 구현합니다. 
+#병합 후 변경 사항이 있는지 확인하고, 변경 사항이 있으면 이를 커밋(적용)한 다음 연결을 종료합니다. 
+#필요에 따라 특정 파일 시스템을 대상으로 하는 선택적 인자를 설정하는 방법도 주석으로 언급되어 있습니다.
 
-switch1.open() # 장비 연결
+from napalm import get_network_driver  # napalm 라이브러리로부터 get_network_driver 함수를 임포트합니다. 네트워크 장비 관리에 사용됩니다.
+driver = get_network_driver('ios')  # 'ios'를 지정하여 Cisco IOS 장비를 위한 네트워크 드라이버를 가져옵니다.
+switch1 = driver('10.1.1.11', 'ccnp', 'cisco')  # 드라이버를 사용하여 스위치에 대한 연결 객체를 생성합니다. IP 주소와 인증 정보가 포함됩니다.
+# 필요에 따라 위에 다음을 추가: ​​optional_args={'dest_file_system': 'flash0:'}  # 명령어 실행 결과를 특정 파일 시스템에 저장하기 위한 선택적 인자를 설정할 수 있습니다.
 
-print('Accessing 10.1.1.11')
+switch1.open()  # 장비에 연결을 시작합니다.
 
-switch1.load_merge_candidate(filename='Merge1.cfg') #새로운 설정 로드(병합)
+print('Accessing 10.1.1.11')  # 스위치 접근 시작을 알립니다.
 
-print(switch1.compare_config()) # 변경 사항 확인
-switch1.commit_config() # 변경 사항 커밋(적용)
+switch1.load_merge_candidate(filename='Merge1.cfg')  # 'Merge1.cfg' 파일에서 새 설정을 불러와 현재 구성과 병합합니다.
 
-switch1.close() # 연결 종료
+print(switch1.compare_config())  # 현재 구성과 새로 불러온 구성 사이의 차이점을 확인합니다.
+switch1.commit_config()  # 변경 사항을 커밋(적용)합니다.
+
+switch1.close()  # 장비와의 연결을 종료합니다.
+
