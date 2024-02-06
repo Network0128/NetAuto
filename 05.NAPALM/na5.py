@@ -18,3 +18,8 @@ switch1.commit_config()  # 변경 사항을 커밋(적용)합니다.
 
 switch1.close()  # 장비와의 연결을 종료합니다.
 
+#Cisco IOS 장치에서 ip scp server enable 명령은 SCP(Secure Copy Protocol) 서버를 활성화하는 데 사용됩니다.
+#장치와의 안전한 파일 전송을 위해 SCP를 사용하려는 경우 이 명령이 필요합니다. SCP는 데이터 전송을 위해 SSH(Secure Shell)를 사용하여 인증과 암호화를 모두 제공합니다.
+#NAPALM과 함께 사용하는 방법을 사용하는 경우 Cisco IOS 장치에서 SCP 서버를 활성화해야 합니다.
+
+
