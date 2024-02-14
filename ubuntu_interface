@@ -1,0 +1,13 @@
+#인터페이스 확인
+ip link show
+
+#인터페이스 활성
+sudo ip link set ens33 up
+
+#DHCP를 통한 IP 할당 : dhclinet를 사용하여 DHCP 서버로부터 자동으로 IP 주소
+sudo ip link set ens33 up
+
+#확인
+ifconfig ens33 
+또는 
+ip addr show ens33
