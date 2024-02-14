@@ -5,7 +5,7 @@ ip link show
 sudo ip link set ens33 up
 
 #DHCP를 통한 IP 할당 : dhclinet를 사용하여 DHCP 서버로부터 자동으로 IP 주소
-sudo ip link set ens33 up
+sudo dhclient ens33
 
 #확인
 ifconfig ens33 
