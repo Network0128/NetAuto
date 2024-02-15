@@ -1,0 +1,23 @@
+en
+conf t
+line c 0
+logging syn
+exec-t 0
+privilege level 15
+exit
+no ip domain-lookup
+hostname 
+
+en
+conf t
+int g0/0
+no sh
+ip add dhcp
+ip nat outside
+int g0/1
+no sh
+ip add 10.1.1.1 255.255.255.0
+ip nat inside
+exit
+ip nat inside so li 1 int g0/0
+acc 1 per any
