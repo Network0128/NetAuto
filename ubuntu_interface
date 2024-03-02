@@ -1,13 +1,30 @@
-#인터페이스 확인
+#인터페이스 상태(up/down) 확인
 ip link show
 
-#인터페이스 활성
+#인터페이스 활성화
 sudo ip link set ens33 up
 
 #DHCP를 통한 IP 할당 : dhclinet를 사용하여 DHCP 서버로부터 자동으로 IP 주소
 sudo dhclient ens33
 
-#확인
-ifconfig ens33 
-또는 
+#IP설정등 확인
 ip addr show ens33
+ifconfig ens33 
+ 
+#static 할당
+sudo nano /etc/netplan/01-netcfg.yaml
+---------------------------------
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses: [192.168.1.10/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+---------------------------------
+sudo netplan apply
+
+
