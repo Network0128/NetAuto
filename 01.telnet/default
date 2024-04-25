@@ -1,0 +1,5 @@
+username ccnp privilege 15 password cisco
+
+line vty 0 4
+transport input telnet
+login local
