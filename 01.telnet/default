@@ -4,7 +4,7 @@ username ccnp privilege 15 password cisco
 
 line vty 0 4
 login local
-transport input telnet
+transport input telnet ssh
 
 #S1에 telnet 서버 설정
 hostname S1
@@ -12,7 +12,7 @@ username ccnp privilege 15 password cisco
 
 line vty 0 4
 login local
-transport input telnet
+transport input telnet ssh
 
 int vlan 1
 ip add 10.1.1.11 255.255.255.0
