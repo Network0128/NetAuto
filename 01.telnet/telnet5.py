@@ -6,7 +6,7 @@ import telnetlib
 user = input("Enter your telnet username: ")
 password = getpass.getpass()
 
-f=open('myswitches')
+f=open('all_devices')
 
 for IP in f:
     IP=IP.strip()
@@ -24,7 +24,7 @@ for IP in f:
     #출력을 읽음
     readoutput = tn.read_all()
     #출력을 파일에 저장
-    saveoutput = open('switch' + IP,'w')
+    saveoutput = open('device' + IP,'w')
     saveoutput.write(readoutput.decode('ascii'))
     saveoutput.write('\n')
     saveoutput.close()
