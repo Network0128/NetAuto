@@ -1,4 +1,5 @@
 # Ubuntu To multiple switch
+#접속 대상 장비들을 파일로 만들어서 반복문과 함께 실행하는 파이썬 자동화 코드를 완성하시오.
 import getpass
 import telnetlib
 
