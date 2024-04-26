@@ -1,4 +1,5 @@
 #Ubuntu To SW1 : Using loop
+#반복문을 활용하여 VLAN을 생성하는 파이썬 자동화 코드를 완성하시오.
 import getpass
 import telnetlib
 
