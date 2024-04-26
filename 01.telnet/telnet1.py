@@ -1,4 +1,5 @@
 #Ubuntu To R1
+#라우터에 접속하여 루프백 인터페이스를 생성하고 조회하는 파이썬 자동화 코드를 완성하시오.
 import getpass  # 필요한 라이브러리 임포트
 import telnetlib
 
