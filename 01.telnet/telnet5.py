@@ -1,4 +1,5 @@
-# Ubuntu To multiple switch
+# Ubuntu To All Devices
+# 모든 장비들의 running-config 파일 파일로 백업하는 파이썬 자동화 코드를 완성하시오.
 import getpass
 import telnetlib
 
