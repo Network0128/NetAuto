@@ -6,7 +6,7 @@ import telnetlib
 user = input("Enter your telnet username: ")
 password = getpass.getpass("Enter your telnet password: ")
 
-f = open('myswitches') #relative Path
+f = open('myswitches') #relative Path : 파일을 못찾는 경우 해당 파일이 있는 디렉터리로 이동 후 실행
 #Absolute Path : f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
 
 for IP in f:
