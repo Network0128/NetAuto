@@ -7,7 +7,7 @@ user = input("Enter your telnet username: ")
 password = getpass.getpass("Enter your telnet password: ")
 
 # 'myswitches' 파일 오픈
-with open('myswitches') as f:
+with open('all_devices') as f:
     # 파일의 각 줄을 아래와 같이 반복
     for IP in f:
         IP = IP.strip()
