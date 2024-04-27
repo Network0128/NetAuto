@@ -6,7 +6,7 @@ import telnetlib
 user = input("Enter your telnet username: ")
 password = getpass.getpass()
 
-f=open('all_devices')
+f=open('all_devices') #python실행시 해당 파일하고 같은 디텍터리에서 실행해야함
 
 for IP in f:
     IP=IP.strip()
