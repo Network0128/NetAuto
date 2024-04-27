@@ -6,7 +6,7 @@ import telnetlib
 user = input("Enter your telnet username: ")
 password = getpass.getpass("Enter your telnet password: ")
 
-# 'myswitches' 파일 오픈
+# 'all_devices' 파일 오픈
 with open('all_devices') as f:
     # 파일의 각 줄을 아래와 같이 반복
     for IP in f:
@@ -27,6 +27,6 @@ with open('all_devices') as f:
         readoutput = tn.read_all()
         
         # 출력을 파일에 저장
-        with open(f'switch{IP}', 'w') as saveoutput:
+        with open(f'device{IP}', 'w') as saveoutput:
             saveoutput.write(readoutput.decode('ascii'))
             saveoutput.write('\n')
