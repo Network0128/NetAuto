@@ -1,5 +1,4 @@
 #R1에 telnet 서버 설정
-hostname R1
 username ccnp privilege 15 password cisco
 
 line vty 0 4
@@ -7,7 +6,6 @@ login local
 transport input telnet
 
 #S1에 telnet 서버 설정
-hostname S1
 username ccnp privilege 15 password cisco
 
 line vty 0 4
@@ -28,7 +26,7 @@ line vty 0 4
  transport input ssh
 
 #S1에 ssh 서버 설정
-hostname S1 
+hostname SW1 
 ip domain name cisco.com
 crypto key generate rsa modulus 1024
 
