@@ -3,8 +3,8 @@
 sudo apt-get update
 sudo apt-get install openssh-server #OpenSSH 서버 설치
 
-sudo nano /etc/ssh/sshd_config #SSH 서버 설정 변경, 아래와 같이 패스워드 인증 활성화 : 원격 사용자가 SSH를 통해 로그인할 때 패스워드를 사용할 수 있도록 한다.
- PasswordAuthontication yes #좌측 설정 주석 해제, 혹은 yes로 변경
+sudo nano -l /etc/ssh/sshd_config #SSH 서버 설정 변경, 아래와 같이 패스워드 인증 활성화 : 원격 사용자가 SSH를 통해 로그인할 때 패스워드를 사용할 수 있도록 한다.
+ PasswordAuthontication yes #57번 : 좌측 설정 주석 해제, 혹은 yes로 변경
  
 sudo service ssh restart #SSH 서버 (서비스) 재시작
 
