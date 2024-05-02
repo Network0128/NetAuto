@@ -3,7 +3,7 @@ from getpass import getpass
 
 net_connect = ConnectHandler(
     device_type="cisco_ios",
-    host="R1",
+    host="10.1.1.21",
     username="ccnp",
     password=getpass()
 )
