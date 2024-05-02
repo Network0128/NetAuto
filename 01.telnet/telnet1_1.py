@@ -1,5 +1,6 @@
 #네트워크를 통한 스크립트 실행에서 발생하는 에러인 buf=self.sock.recv(50) 관련 에러는 특히 타이밍 문제나 네트워크 지연으로 인해 발생할 수 있다.
 #네트워크 연결 중 예외가 발생할 수 있으므로, try-except 블록을 사용하여 예외를 처리하고, 연결 문제 발생 시 사용자에게 알려주거나 재시도할 수 있게 할 수 있다.
+
 import getpass
 import telnetlib
 import time
