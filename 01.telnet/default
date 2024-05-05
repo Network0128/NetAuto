@@ -23,7 +23,7 @@ crypto key generate rsa modulus 1024
 
 line vty 0 4
  login local
- transport input ssh
+ transport input ssh telnet
 
 #S1에 ssh 서버 설정
 hostname SW1 
@@ -32,6 +32,6 @@ crypto key generate rsa modulus 1024
 
 line vty 0 4
  login local
- transport input ssh
+ transport input ssh telnet
 
 
