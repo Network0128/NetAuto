@@ -23,3 +23,8 @@ Host 10.1.1.13
 Host 10.1.1.21 #라우터
     KexAlgorithms +diffie-hellman-group1-sha1
     HostKeyAlgorithms +ssh-rsa
+--------------------------------------------------------------------
+
+#Windows에서 SSH 클라이언트 설정 변경하기
+notepad $env:USERPROFILE\.ssh\config  -> notepad C:\Users\ljk\.ssh\config 
+
