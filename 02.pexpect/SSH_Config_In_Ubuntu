@@ -28,3 +28,19 @@ Host 10.1.1.21 #라우터
 #Windows에서 SSH 클라이언트 설정 변경하기
 notepad $env:USERPROFILE\.ssh\config  -> notepad C:\Users\ljk\.ssh\config 
 
+파일을 열거나 생성한 후, 아래와 같이 설정을 추가합니다. diffie-hellman-group1-sha1 키 교환 알고리즘과 ssh-rsa 호스트 키 알고리즘을 사용하도록 설정합니다.
+
+Host 10.1.1.11 
+    KexAlgorithms +diffie-hellman-group1-sha1 
+    HostKeyAlgorithms +ssh-rsa 
+Host 10.1.1.12
+    KexAlgorithms +diffie-hellman-group1-sha1
+    HostKeyAlgorithms +ssh-rsa
+Host 10.1.1.13
+    KexAlgorithms +diffie-hellman-group1-sha1
+    HostKeyAlgorithms +ssh-rsa
+
+Host 10.1.1.21 #라우터
+    KexAlgorithms +diffie-hellman-group1-sha1
+    HostKeyAlgorithms +ssh-rsa
+
