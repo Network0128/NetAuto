@@ -1,6 +1,5 @@
 #Ubuntu To SW1
 #스위치에 접속하여 VLAN을 생성하고 조회하는 파이썬 자동화 코드를 완성하시오.
-import getpass
 import telnetlib
 
 HOST = "10.1.1.11"
