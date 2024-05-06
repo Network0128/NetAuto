@@ -1,10 +1,9 @@
 # Ubuntu To multiple switch
 #접속 대상 장비들을 파일로 만들어서 반복문과 함께 실행하는 파이썬 자동화 코드를 완성하시오.
-import getpass
 import telnetlib
 
-user = input("Enter your telnet username: ")
-password = getpass.getpass("Enter your telnet password: ")
+user = 'ccnp'
+password = 'cisco'
 
 f = open('myswitches') #relative Path : 파일을 못찾는 경우 해당 파일이 있는 디렉터리로 이동 후 실행
 #Absolute Path : f = open('/home/ubuntu/PythonHome/1.telnet/myswitches')
