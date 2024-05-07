@@ -1,10 +1,9 @@
 # Ubuntu To All Devices
 # 모든 장비들의 running-config파일을 백업받는 파이썬 자동화 코드를 완성하시오.
-import getpass
 import telnetlib
 
-user = input("Enter your telnet username: ")
-password = getpass.getpass()
+user = "ccnp"
+password = "cisco"
 
 f=open('all_devices') #python실행시 해당 파일하고 같은 디텍터리에서 실행해야함
 
