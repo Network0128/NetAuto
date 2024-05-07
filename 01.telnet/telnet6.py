@@ -1,10 +1,9 @@
 #Ubuntu To multiple switch
 #가독성을 높이기 위해 telnet5.py를 수정(with문 사용)
-import getpass
 import telnetlib
 
-user = input("Enter your telnet username: ")
-password = getpass.getpass("Enter your telnet password: ")
+user = "ccnp"
+password = "cisco"
 
 # 'all_devices' 파일 오픈
 with open('all_devices') as f:
