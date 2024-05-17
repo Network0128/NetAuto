@@ -23,6 +23,12 @@ Host 10.1.1.13
 Host 10.1.1.21 #라우터
     KexAlgorithms +diffie-hellman-group1-sha1
     HostKeyAlgorithms +ssh-rsa
+
+Host 192.168.0.1 #7200라우터는 아래와 같이 1줄 추가
+    KexAlgorithms +diffie-hellman-group1-sha1
+    HostKeyAlgorithms +ssh-rsa
+    Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+
 --------------------------------------------------------------------
 
 #Windows에서 SSH 클라이언트 설정 변경하기
@@ -43,4 +49,9 @@ Host 10.1.1.13
 Host 10.1.1.21 #라우터
     KexAlgorithms +diffie-hellman-group1-sha1
     HostKeyAlgorithms +ssh-rsa
+
+Host 192.168.0.1 #7200라우터는 아래와 같이 1줄 추가
+    KexAlgorithms +diffie-hellman-group1-sha1
+    HostKeyAlgorithms +ssh-rsa
+    Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
 
