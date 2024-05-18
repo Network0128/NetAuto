@@ -55,3 +55,23 @@ Host 192.168.0.1 #7200라우터는 아래와 같이 1줄 추가
     HostKeyAlgorithms +ssh-rsa
     Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
 
+--------------------------------------------------------------------
+
+위의 상황과 반대이다. 
+라우터(클라이언트)에서 우분투(SSH서버)로 접속하는 경우 우분투 설정
+root@ubuntu:~# nano /etc/ssh/sshd_config
+KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedAlgorithms +ssh-rsa
+
+root@ubuntu:~# systemctl restart ssh
+
+#라우터에서 아래와 같이 접속
+IOSv1#ssh -l ccnp 30.1.1.2
+
+#7200라우터의 경우 서버 sshd_config파일에 아래 한줄 추가
+Ciphers +aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+
+
+
+
