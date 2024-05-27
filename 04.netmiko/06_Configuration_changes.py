@@ -10,7 +10,9 @@ router1 = {
     "password": "cisco",
 }
 
-commands = ["logging buffered 100000"] #라우터의 내부 로깅 버퍼 크기를 100,000바이트로 설정
+#commands = ["logging buffered 100000"] #라우터의 내부 로깅 버퍼 크기를 100,000바이트로 설정
+commands = ["interface loopback 0", "ip address 1.1.1.1 255.255.255.0"]
+
 with ConnectHandler(**router1) as net_connect:
     output = net_connect.send_config_set(commands) #send_config_set: 전역 설정 모드의 명령어를 보내는데 사용
     output += net_connect.save_config() #네트워크 장비의 현재 설정 저장
@@ -18,4 +20,4 @@ with ConnectHandler(**router1) as net_connect:
 print()
 print(output)
 print()
-#print(f"\n{output}\n")
+
