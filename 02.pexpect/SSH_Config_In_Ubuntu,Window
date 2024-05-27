@@ -1,4 +1,19 @@
-#Ubuntu, UbuntuDockter에서 필요함 (NetworkAutomation는 아래 설정 없이 작동됨)
+#라우터, 스위치를 ssh server로 사용, Ubuntu, UbuntuDockter, NetworkAutomation에서 접속할 경우
+
+sudo nano /etc/ssh/ssh_config #SSH 클라이언트 설정 변경 : 특정 호스트(IOSv 스위치,라우터)에 대한 키 교환 알고리즘 설정
+
+#호스트와의 통신에 사용할 (키 교환) 알고리즘을 설정
+KexAlgorithms +diffie-hellman-group1-sha1 #클라이언트와 서버 사이에 안전하게 비밀키를 교환하는 방법을 정의
+HostKeyAlgorithms +ssh-rsa #서버가 클라이언트에게 자신의 신원을 증명하는 데 사용
+
+<불필요한 설정>
+sudo apt-get install openssh-server: 필요 없음
+/etc/ssh/sshd_config 수정: 필요 없음
+sudo service ssh restart: 필요 없음
+
+----------------------------------------------------------------------------------------------------------------------
+#Ubuntu를 ssh-server 로 사용 : 4세대 블로그 참고 : https://zrr.kr/zX8y
+#UbuntuDocker,NetworkAutomation,KaliLinux에서 Ubuntu로 접속 할 경우 아래 설정만으로 가능
 
 sudo apt-get update
 sudo apt-get install openssh-server #OpenSSH 서버 설치
@@ -7,6 +22,26 @@ sudo nano -l /etc/ssh/sshd_config #SSH 서버 설정 변경, 아래와 같이 �
  PasswordAuthontication yes #57번 : 좌측 설정 주석 해제, 혹은 yes로 변경
  
 sudo service ssh restart #SSH 서버 (서비스) 재시작
+--------------------------------------------------------------------
+#Ubuntu를 ssh-server 로 사용 : 4세대 블로그 참고 : https://zrr.kr/zX8y
+#라우터, 스위치에서 Ubuntu로 접속 할 경우 아래 설정만으로 가능
+
+root@ubuntu:~# nano /etc/ssh/sshd_config
+KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedAlgorithms +ssh-rsa
+
+root@ubuntu:~# systemctl restart ssh
+
+#라우터에서 아래와 같이 접속
+IOSv1#ssh -l ccnp 30.1.1.2
+
+#7200라우터의 경우 서버 sshd_config파일에 아래 한줄 추가
+Ciphers +aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+우분투를 클라이언트로 하고 라우터, 스위치를 대상으로 개별적으로 키교환 알고리즘을 설정을 할 경우
 
 sudo nano /etc/ssh/ssh_config #SSH 클라이언트 설정 변경 : 특정 호스트(IOSv 스위치,라우터)에 대한 키 교환 알고리즘 설정
 
@@ -55,23 +90,9 @@ Host 192.168.0.1 #7200라우터는 아래와 같이 1줄 추가
     HostKeyAlgorithms +ssh-rsa
     Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
 
---------------------------------------------------------------------
---------------------------------------------------------------------
 
-위의 상황과 반대이다. 
-라우터(클라이언트)에서 우분투(SSH서버)로 접속하는 경우 우분투에서 설정
-root@ubuntu:~# nano /etc/ssh/sshd_config
-KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256
-HostKeyAlgorithms +ssh-rsa
-PubkeyAcceptedAlgorithms +ssh-rsa
 
-root@ubuntu:~# systemctl restart ssh
 
-#라우터에서 아래와 같이 접속
-IOSv1#ssh -l ccnp 30.1.1.2
-
-#7200라우터의 경우 서버 sshd_config파일에 아래 한줄 추가
-Ciphers +aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
 
 
 
