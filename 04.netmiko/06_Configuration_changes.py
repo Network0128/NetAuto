@@ -2,13 +2,12 @@
 # send_config_set과 save_config 메소드를 통해 설정 파일을 변경하고, 저장합니다.
 
 from netmiko import ConnectHandler
-from getpass import getpass
 
 router1 = {
     "device_type": "cisco_ios",
     "host": "10.1.1.21",
     "username": "ccnp",
-    "password": getpass(),
+    "password": "cisco",
 }
 
 commands = ["logging buffered 100000"] #라우터의 내부 로깅 버퍼 크기를 100,000바이트로 설정
