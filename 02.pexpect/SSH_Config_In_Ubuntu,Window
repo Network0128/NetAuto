@@ -1,4 +1,5 @@
-#라우터, 스위치를 ssh server로 사용, Ubuntu, UbuntuDockter, NetworkAutomation에서 접속할 경우
+#Ubuntu를 ssh-client 로 사용 : 라우터, 스위치를 ssh server로 사용
+#Ubuntu, UbuntuDockter, NetworkAutomation에서 라우터, 스위치로 접속할 경우
 
 sudo nano /etc/ssh/ssh_config #SSH 클라이언트 설정 변경 : 특정 호스트(IOSv 스위치,라우터)에 대한 키 교환 알고리즘 설정
 
