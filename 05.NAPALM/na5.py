@@ -13,6 +13,7 @@ switch1.open()  # 장비에 연결을 시작합니다.
 print('Accessing 10.1.1.11')  # 스위치 접근 시작을 알립니다.
 
 switch1.load_merge_candidate(filename='Merge1.cfg')  # 'Merge1.cfg' 파일에서 새 설정을 불러와 현재 구성과 병합합니다.
+# switch1.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg')  실행이 안될경우 절대경로 사용
 
 print(switch1.compare_config())  # 현재 구성과 새로 불러온 구성 사이의 차이점을 확인합니다.
 switch1.commit_config()  # 변경 사항을 커밋(적용)합니다.
