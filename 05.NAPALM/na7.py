@@ -9,6 +9,7 @@ switch2.open()
 
 print('Accessing 10.1.1.12') 
 switch2.load_merge_candidate(filename='Merge1.cfg') 
+#switch2.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg') 
 
 diffs = switch2.compare_config()  # 현재 구성과 새로 불러온 구성 사이의 차이점을 비교합니다.
 if len(diffs) > 0:  # 차이점이 있다면,
@@ -19,6 +20,7 @@ else:  # 차이점이 없다면,
     switch2.discard_config()  # 준비된 변경 사항을 버립니다.
 
 switch2.load_merge_candidate(filename='ospf1.cfg')  # 'ospf1.cfg' 파일에서 새 OSPF 설정을 불러와 현재 구성과 병합할 준비를 합니다.
+#switch2.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/ospf1.cfg')
 
 diffs = switch2.compare_config()  # 현재 구성과 새로 불러온 OSPF 구성 사이의 차이점을 다시 비교합니다.
 if len(diffs) > 0:  # OSPF 설정에 차이점이 있다면,
