@@ -5,7 +5,7 @@
 from napalm import get_network_driver  
 
 driver = get_network_driver('ios')  
-router1 = driver('10.1.1.21', 'ccnp', 'cisco', optional_args={'dest_file_system': 'nvram:'} )  # 드라이버를 사용하여 라우터에 연결하기 위한 객체를 생성합니다. 추가 설정으로 대상 파일 시스템을 nvram으로 지정합니다.
+router1 = driver('10.1.1.21', 'ccnp', 'cisco') 
 router1.open()  
 
 print('Accessing 10.1.1.21')  # 라우터 접근 시작을 알립니다.
