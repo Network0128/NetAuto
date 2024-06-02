@@ -2,7 +2,7 @@
 #각 장비에 순차적으로 연결하여 'Merge1.cfg'와 'ospf1.cfg' 파일의 구성을 병합하려 시도합니다. 
 #변경 사항이 있을 경우 적용하고, 없을 경우 버립니다. 작업이 완료된 후에는 장비와의 연결을 종료합니다.
 
-from napalm import get_network_driver  # napalm 라이브러리로부터 get_network_driver 함수 임포트
+from napalm import get_network_driver 
 
 devices = ['10.1.1.11', '10.1.1.12', '10.1.1.13']  # 장비 IP 주소 리스트
 
@@ -30,4 +30,4 @@ for ip_address in devices:  # devices 리스트의 각 IP 주소에 대해 반�
         print('No change : OSPF')  # OSPF 변경 사항 없음 메시지 출력
         switch.discard_config()  # 변경 사항 버림
 
-    switch.close()  # 장비와의 연결 종료
+    switch.close()  
