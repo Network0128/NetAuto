@@ -9,8 +9,8 @@ driver = get_network_driver('ios')  # IOS 장비를 위한 네트워크 드라�
 switch1 = driver('10.1.1.11', 'ccnp', 'cisco')  # 드라이버를 사용하여 스위치에 연결하기 위한 객체를 생성합니다.
 switch1.open()  # 네트워크 장비에 연결을 시작합니다.
 
-ip_address = socket.gethostbyname('google.com')  # 'google.com'의 IP 주소를 조회합니다.
-output = switch1.ping(ip_address) #Caution  # 조회한 IP 주소로 핑(ping)을 보냅니다. 주의: 실제 네트워크 환경에서 실행 시 트래픽에 영향을 줄 수 있습니다.
+destination_ip = socket.gethostbyname('google.com')  # 'google.com'의 IP 주소를 조회합니다.
+output = switch1.ping(destination_ip) # 조회한 IP 주소로 핑(ping)을 보냅니다.
 
 print(json.dumps(output,indent=4))  # 핑 결과를 JSON 형식으로 출력합니다. 들여쓰기는 4칸입니다.
 switch1.close()  # 네트워크 장비 연결을 종료합니다.
