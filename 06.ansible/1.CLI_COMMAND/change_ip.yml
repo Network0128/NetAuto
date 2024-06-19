@@ -1,0 +1,38 @@
+---
+- name: Change IP address on Cisco device
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Change IP address on Loopback 1
+      cisco.ios.ios_config:
+        lines:
+          - interface loopback 1
+          - ip address 2.2.2.2 255.255.255.0
+          - no shutdown
+      register: result
+
+    - name: Save configuration
+      cisco.ios.ios_command:
+        commands:
+          - write memory
+      register: save_result
+
+    - name: Show running config for Loopback 1
+      cisco.ios.ios_command:
+        commands:
+          - show running-config interface loopback 1
+      register: show_result
+
+    - name: Show IP interface brief
+      cisco.ios.ios_command:
+        commands:
+          - show ip interface brief
+      register: ip_int_brief_result
+
+    - name: Show detailed running config
+      ansible.builtin.debug:
+        var: show_result
+
+    - name: Display IP interface brief
+      ansible.builtin.debug:
+        var: ip_int_brief_result
