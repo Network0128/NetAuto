@@ -11,7 +11,7 @@ router1 = {
 
 with ConnectHandler(**router1) as net_connect:  
     print(net_connect.find_prompt()) # 장비의 명령 프롬프트를 출력하여 연결 확인
-    output = net_connect.send_command("show ip int brief")  # 장비에 명령을 보내고 출력을 저장
+    output = net_connect.send_command("show ip int brief")  # 장비에 명령을 보내고 출력을 output에 저장
     print(output)  # 명령의 출력을 출력
 
 --------------------------------------------------------------
