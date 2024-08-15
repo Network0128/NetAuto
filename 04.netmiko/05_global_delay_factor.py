@@ -13,5 +13,5 @@ router1 = {
 
 command = "show ip arp"
 net_connect = ConnectHandler(**router1)
-pirnt(net_connect.send_command(command))
+print(net_connect.send_command(command))
 net_connect.disconnect()
