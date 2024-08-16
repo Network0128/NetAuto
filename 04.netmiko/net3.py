@@ -27,6 +27,7 @@ switch3 = {
 with open('switch_design') as f: # switch_design 파일 읽기
     lines = f.read().splitlines() # 파일 내용을 줄 단위로 리스트로 저장
 print(lines) # 결과 출력
+
 #실행 안될 경우 절대경로로 변경
 #with open('/home/ubuntu/PythonHome/3.netmiko/switch_design') as f: # switch_design.txt 파일 읽기
 #    lines = f.read().splitlines() # 파일 내용을 줄 단위로 리스트로 저장
