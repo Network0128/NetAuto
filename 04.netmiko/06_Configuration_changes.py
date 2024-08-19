@@ -59,6 +59,6 @@ for device in (router1, switch1, switch2, switch3):
         print(net_connect.find_prompt())
         output=net_connect.send_config_set(commands)
         output += net_connect.save_config()
-        #output=net_connect.send_command(command)        
+        #output += net_connect.send_command(command)        
         print(output)
         print()
