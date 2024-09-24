@@ -11,9 +11,9 @@ password = getpass.getpass()  # 사용자에게 비밀번호 입력을 요청할
 
 tn = telnetlib.Telnet(HOST)  # 지정된 호스트로 텔넷 연결 시작
 
-# 바이트 타입 데이터 : 주로 파일 입출력, 네트워크 통신, 바이너리 데이터 처리 등에서 사용
-# ASCII 인코딩 : string 타입 → byte 타입 
-# string <-> byte(ascii) <-> string
+# 바이트 타입 데이터: 주로 파일 입출력, 네트워크 통신, 바이너리 데이터 처리 등에서 사용된다.
+# ASCII 인코딩: string 타입의 데이터를 byte 타입으로 변환할 때 사용되는 인코딩 방식 중 하나다. (하지만 다른 인코딩 방식도 존재, 예: UTF-8)
+# string <-> byte(ASCII) <-> string : ASCII 인코딩을 사용하여 문자열을 바이트로 변환하고 다시 문자열로 복원한다.
 
 tn.read_until(b"Username: ")  # 사용자 이름 입력 대기
 tn.write(user.encode('ascii') + b"\n")  # 사용자 이름 전송
