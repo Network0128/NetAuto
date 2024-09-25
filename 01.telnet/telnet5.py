@@ -21,9 +21,9 @@ for IP in f:
     #명령어 연속 실행
     tn.write(b"terminal length 0\nsh run\nexit\n")
     #출력을 읽음
-    readoutput = tn.read_all()
+    read_output = tn.read_all()
     #출력을 파일에 저장
-    saveoutput = open('device' + IP,'w')
-    saveoutput.write(readoutput.decode('ascii'))
-    saveoutput.write('\n')
-    saveoutput.close()
+    save_output = open('device' + IP,'w')
+    save_output.write(read_output.decode('ascii'))
+    save_output.write('\n')
+    save_output.close()
