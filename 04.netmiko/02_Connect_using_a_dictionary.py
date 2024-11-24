@@ -9,7 +9,8 @@ router1 = {
 
 net_connect = ConnectHandler(**router1) # **router1 : 딕셔너리의 각 키-값 쌍이 함수의 인자로 전달
 
-print(net_connect.send_command("show ip int brief"))
+#명령어를 차례대로 하나씩 실행해보자
+print(net_connect.send_command("show ip int brief")) 
 print(net_connect.send_command("show run"))
 
 net_connect.disconnect()
