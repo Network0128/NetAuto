@@ -8,7 +8,7 @@ net_connect = ConnectHandler(
     password="cisco"         # 장비 접속 비밀번호
 )
 
-# send_command: 관리자 모드의 명령어를 보내는데 사용
+# send_command: 관리자 모드의 명령어를 보내는데 사용, 아래 명령어를 차례대로 실행 해보자.
 print(net_connect.send_command("show ip int brief"))  # 인터페이스 상태 요약 출력
 print(net_connect.send_command("show run"))          # 실행 중인 설정 출력
 
