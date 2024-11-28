@@ -16,6 +16,9 @@ commands = ["interface loopback 0", "ip address 1.1.1.1 255.255.255.0"]
 with ConnectHandler(**router1) as net_connect:
     output = net_connect.send_config_set(commands) #send_config_set: 전역 설정 모드의 명령어를 보내는데 사용
     output += net_connect.save_config() #네트워크 장비의 현재 설정 저장
+    # ---------위의 2줄 아래와 같이 가능-------------#
+    # print(net_connect.send_config_set(commands)) #
+    # print(net_connect.save_config())             #
 
 print()
 print(output)
