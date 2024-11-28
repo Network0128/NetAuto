@@ -17,15 +17,21 @@ with ConnectHandler(**router1) as net_connect:
 --------------------------------------------------------------
 #위의 코드와 동일, 명령어를 변수에 저장
 command="show ip int brief"
-
 with ConnectHandler(**router1) as net_connect:
     print(net_connect.find_prompt())
     output = net_connect.send_command(command)
     print(output)
 --------------------------------------------------------------
-#위의 코드와 동일, 여러 명령어를 리스트에 저장
+#위의 코드와 동일, 여러 명령어를 리스트에 저장 후 실행 - 1
+commands = ["show ip int br","show ip route"] 
+with ConnectHandler(**router1) as net_connect: 
+    print(net_connect.find_prompt()) 
+    for cmd in commands: 
+        print(net_connect.send_command(cmd))
+---------------------------------------------------------------- 
+#위의 코드와 동일, 여러 명령어를 리스트에 저장 후 실행 - 2 
+차이점 : 접속/종료 후 진행
 commands=["show ip int brief",'show run']
-
 for cmd in commands:
     with ConnectHandler(**router1) as net_connect:
         print(net_connect.find_prompt())
