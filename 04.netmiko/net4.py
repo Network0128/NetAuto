@@ -1,6 +1,6 @@
 # R1, S1, S2, S3 접속 : 전체 네트워크를 설정하는 스크립트 실행
-# switch_design 파일의 설정 명령어를 읽어 3개의 스위치에 차례로 연결하여 실행합니다.
-# router_design 파일의 설정 명령어를 읽어 라우터에 연결하여 실행합니다.
+# switch_design 파일의 설정 명령어를 읽어 3개의 스위치에 차례로 연결 및 실행
+# router_design 파일의 설정 명령어를 읽어 라우터에 연결 및 실행
 
 from netmiko import ConnectHandler
 
@@ -49,7 +49,7 @@ with open('router_design') as f: # router_design 파일 읽기
 print(lines) # 파일 내용 출력
 
 # 라우터에 설정 명령어 실행
-devices = [router1] # 라우터 목록
+devices = [router1] # 라우터 목록, 여러개 라우터가 추가될 경우 대비
 for device in devices:
     net_connect = ConnectHandler(**device) # 라우터에 연결
     output = net_connect.send_config_set(lines) # 설정 명령어 실행
