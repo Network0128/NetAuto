@@ -33,9 +33,8 @@ for IP in f:
     print(tn.read_all().decode('ascii'))
 
 ----------------------------
-# 파일을 사용하지 않을 경우 : 실습 - 1
-myswitches = ("10.1.1.11","10.1.1.12","10.1.1.13")
-#list, tuple, set, dictionary 모두 가능 주로 불변성의 튜플 사용
+# 파일을 사용하지 않을 경우 : 실습 1 단계
+myswitches = ("10.1.1.11","10.1.1.12","10.1.1.13")  #list, tuple, set, dictionary 모두 가능 주로 불변성의 튜플 사용
 for HOST in myswitches:
     print("지금 접속 장비의 IP : ", HOST)
     for n in range(2,11):
@@ -43,7 +42,7 @@ for HOST in myswitches:
         print("name Python_VLAN_" + str(n))  
     print() 
 ----------------------------
-# 파일을 사용하지 않을 경우 : 실습 - 2
+# 파일을 사용하지 않을 경우 : 실습 2 단계
 import telnetlib
 user = "ccnp"
 password = "cisco"
