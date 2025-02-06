@@ -21,9 +21,9 @@ for IP in f:
     #명령어 연속 실행
     tn.write(b"terminal length 0\nsh run\nexit\n")
     #출력을 읽음
-    read_output = tn.read_all()
+    read_output = tn.read_all() #전체 Telnet 세션의 출력을 읽어서 'read_output' 변수에 저장
     #출력을 파일에 저장
-    save_output = open('device' + IP,'w')
-    save_output.write(read_output.decode('ascii'))
-    save_output.write('\n')
+    save_output = open('device_' + IP,'w') #파일 이름을 'device + IP'로 지정하고 쓰기 모드('w')로 파일을 연다.
+    save_output.write(read_output.decode('ascii')) #'read_output'의 바이트열 형태를 문자열로 변환하여 파일에 작성
+    save_output.write('\n') #저장되는 파일 마지막에 새로운 한 줄 추가(엔터), 출력의 끝을 명확히 표시
     save_output.close()
