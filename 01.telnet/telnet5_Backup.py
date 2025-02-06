@@ -12,13 +12,10 @@ for IP in f:
     IP=IP.strip()
     print(f'Get running Config from Device {IP}')
     tn = telnetlib.Telnet(IP)
-    #사용자 이름 입력
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
-    #비밀 번호 입력
-    if password:
-        tn.read_until(b"Password: ")
-        tn.write(password.encode('ascii') + b"\n")
+    tn.read_until(b"Password: ")
+    tn.write(password.encode('ascii') + b"\n")
     #명령어 연속 실행
     tn.write(b"terminal length 0\nsh run\nexit\n")
     #출력을 읽음
