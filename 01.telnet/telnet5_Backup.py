@@ -18,9 +18,7 @@ for IP in f:
     tn.write(password.encode('ascii') + b"\n")
     #명령어 연속 실행
     tn.write(b"terminal length 0\nsh run\nexit\n")
-    #출력을 읽음
-    read_output = tn.read_all() #전체 Telnet 세션의 출력을 읽어서 'read_output' 변수에 저장
-    #출력을 파일에 저장
-    save_output = open(f'device_{IP}','w') #파일 이름을 'device + IP'로 지정하고 쓰기 모드('w')로 파일을 연다.
-    save_output.write(read_output.decode('ascii')) #'read_output'의 바이트열 형태를 문자열로 변환하여 파일에 작성
+    #출력을 읽어서 파일에 저장
+    save_output = open(f'device_{IP}','w')  # f-string을 사용하여 IP 주소별 파일명 생성, 쓰기 모드로 파일 열기
+    save_output.write(tn.read_all().decode('ascii')) # telnet 세션의 출력(bytes)을 ASCII 문자열로 디코딩하여 파일에 저장
     save_output.close()
