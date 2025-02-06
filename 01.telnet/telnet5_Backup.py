@@ -6,6 +6,7 @@ user = "ccnp"
 password = "cisco"
 
 f=open('all_devices') #python실행시 해당 파일하고 같은 디텍터리에서 실행해야함
+#혹은 절대 경로 사용: f=open('/home/ubuntu/PythonHome/all_devices')
 
 for IP in f:
     IP=IP.strip()
@@ -25,5 +26,5 @@ for IP in f:
     #출력을 파일에 저장
     save_output = open('device_' + IP,'w') #파일 이름을 'device + IP'로 지정하고 쓰기 모드('w')로 파일을 연다.
     save_output.write(read_output.decode('ascii')) #'read_output'의 바이트열 형태를 문자열로 변환하여 파일에 작성
-    save_output.write('\n') #저장되는 파일 마지막에 새로운 한 줄 추가(엔터), 출력의 끝을 명확히 표시
+    save_output.write('\n') #저장되는 파일 마지막에 새로운 한 줄 추가(엔터), 출력의 끝을 명확히 표시(가독성 향상)
     save_output.close()
