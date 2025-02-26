@@ -19,8 +19,7 @@ with ConnectHandler(**router1) as net_connect:
 command="show ip int brief"
 with ConnectHandler(**router1) as net_connect:
     print(net_connect.find_prompt())
-    output = net_connect.send_command(command)
-    print(output)
+    print(net_connect.send_command(command))
 --------------------------------------------------------------
 #위의 코드와 동일, 여러 명령어를 리스트에 저장 후 실행
 commands = ["show ip int br","show ip route"] 
