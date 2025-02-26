@@ -10,7 +10,7 @@ Ciphers aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-c
 -----------------------------------------------------------------------------------------------------------------------
 
 KexAlgorithms : SSH 통신에서 세션 키를 교환하는 알고리즘 설정.
-diffie-hellman-group1-sha1은 오래된 방식으로 보안이 약함.
+diffie-hellman-group1-sha1 : 오래된 방식으로 보안이 약함.
 
 HostKeyAlgorithms : 서버가 신뢰할 수 있는 서버인가? 서버의 신원(정당성)을 확인하는 데 사용되는 알고리즘 설정.
 ssh-rsa는 SHA-1 기반으로 보안이 약화됨.
