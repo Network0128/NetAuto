@@ -32,3 +32,51 @@ for device in devices:  # 각 스위치에 대해 반복
         config_commands = ['vlan ' + str(n), 'name Python_VLAN ' + str(n)]  # VLAN 생성 및 이름 지정 명령어
         output = net_connect.send_config_set(config_commands)  # 명령어 실행 및 출력
         print(output)  # 결과 출력
+
+---------------with 문으로 처리-------------
+
+from netmiko import ConnectHandler
+
+SW1 = {
+    "device_type" : "cisco_ios",
+    "host" : "10.1.1.11",
+    "username" : "ccnp",
+    "password" : "cisco",
+    "global_delay_factor": 2,
+}
+
+SW2 = {
+    "device_type" : "cisco_ios",
+    "host" : "10.1.1.12",
+    "username" : "ccnp",
+    "password" : "cisco",
+    "global_delay_factor": 2,
+}
+
+SW3 = {
+    "device_type" : "cisco_ios",
+    "host" : "10.1.1.13",
+    "username" : "ccnp",
+    "password" : "cisco",
+    "global_delay_factor": 2,
+}
+
+for device in (SW1,SW2,SW3):
+    with ConnectHandler(**device) as net_connect:
+        print(net_connect.find_prompt())
+        for n in range(2,11):
+            config_commands = ["vlan "+str(n),"name Python_VLAN "+ str(n)]
+            print(net_connect.send_config_set(config_commands))
+        print(net_connect.send_command("show vlan br"))
+    
+    
+
+
+
+
+
+
+
+
+
+
