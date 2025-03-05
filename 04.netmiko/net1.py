@@ -23,3 +23,31 @@ for n in range(2, 11):  # VLAN 2부터 10까지 생성하기 위한 반복문
     config_commands = ['vlan ' + str(n), 'name Python_VLAN ' + str(n)]  # VLAN을 생성하고 이름을 지정하는 명령어 정의
     output = net_connect.send_config_set(config_commands)  # VLAN 설정 명령어를 스위치에 전송
     print(output)  # 결과 출력
+
+-----------------with 문으로 처리------------------
+
+from netmiko import ConnectHandler
+
+SW1 = {
+    "device_type" : "cisco_ios",
+    "host" : "10.1.1.11",
+    "username" : "ccnp",
+    "password" : "cisco",
+    "global_delay_factor": 2,
+}
+commands=["int loopback 0","ip add 2.2.2.2 255.255.255.0"]
+
+with ConnectHandler(**SW1) as net_connect:
+    print(net_connect.find_prompt())
+    print(net_connect.send_config_set(commands))
+    print(net_connect.send_command("show ip int br"))
+    for n in range(2,11):
+        config_commands = ["vlan "+str(n),"name Python_VLAN "+ str(n)]
+        print(net_connect.send_config_set(config_commands))
+    print(net_connect.send_command("show vlan br"))
+    
+    
+
+
+
+
