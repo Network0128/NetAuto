@@ -11,9 +11,8 @@ tn = telnetlib.Telnet(HOST)  # 지정된 호스트로 텔넷 연결 시작
 # 사용자 이름과 비밀번호를 자동으로 전송
 tn.read_until(b"Username: ")
 tn.write(user.encode('ascii') + b"\n")
-if password:
-    tn.read_until(b"Password: ")
-    tn.write(password.encode('ascii') + b"\n")
+tn.read_until(b"Password: ")
+tn.write(password.encode('ascii') + b"\n")
 
 # 텔넷 세션을 통해 네트워크 명령 실행
 tn.write(b"sh ip int br\n")
