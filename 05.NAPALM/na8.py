@@ -7,7 +7,7 @@ from napalm import get_network_driver
 devices = ['10.1.1.11', '10.1.1.12', '10.1.1.13']  # 장비 IP 주소 리스트
 
 for IP in devices:  # devices 리스트의 각 IP 주소에 대해 반복 실행
-    print("Connecting to " + str(ip_address))  # 현재 연결 중인 장비 IP 주소 출력
+    print(f"Connecting to {IP}")  # 현재 연결 중인 장비 IP 주소 출력
     driver = get_network_driver('ios')  # Cisco IOS 장비를 위한 드라이버 가져오기
     switch = driver(IP, 'ccnp', 'cisco')  # 인증 정보와 함께 장비에 대한 연결 객체 생성
     switch.open()  # 장비와의 연결 시작
