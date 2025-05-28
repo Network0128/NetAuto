@@ -1,9 +1,8 @@
 # NAPALM 라이브러리를 사용하여 특정 네트워크 장치(‘ios’)에 연결하고,
 # 해당 장치의 정보를 가져와 JSON 형식으로 출력하는 과정을 수행
 
-import json  # json 라이브러리 가져오기
-
 from napalm import get_network_driver  # napalm 라이브러리에서 get_network_driver 함수 가져오기
+import json  # json 라이브러리 가져오기
 
 driver = get_network_driver('ios')  # 'ios' 드라이버 가져오기
 
