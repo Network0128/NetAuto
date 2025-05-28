@@ -10,7 +10,7 @@ device = driver(hostname='10.1.1.21', username='ccnp', password='cisco')  # 장�
 device.open()  # 장치에 연결 시작
 
 #get_facts() 메서드 : 장비 정보 가져오기(장비 모델, 시리얼 번호, 운영 체제 버전 등)
-output = device.get_facts()  # 장치로부터 사실 가져오기
+output = device.get_facts()  # 장치 정보 가져오기
 
 print(output)  # 화면에 출력
 
