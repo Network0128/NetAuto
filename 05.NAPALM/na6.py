@@ -10,15 +10,15 @@ R1.open()
 
 print('Accessing 10.1.1.21')  # 라우터 접근 시작을 알립니다.
 R1.load_merge_candidate(filename='Merge1.cfg') #Load new settings (merge)  # 'Merge1.cfg' 파일에서 새 설정을 불러와 현재 구성과 병합합니다.
-# router1.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg') 컴파일 실패시, 절대경로 사용
+# R1.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg') 컴파일 실패시, 절대경로 사용
 
 diffs = R1.compare_config() # 현재 구성과 새로 불러온 구성 사이의 차이점을 확인합니다.
 if len(diffs) > 0:  # 차이점이 있다면,
     print(diffs)  # 차이점을 출력합니다.
-    router1.commit_config()  # 변경 사항을 커밋합니다.
+    R1.commit_config()  # 변경 사항을 커밋합니다.
 else:  # 차이점이 없다면,
     print('No change : ACL, loopback')  # 변경 사항이 없음을 알리고,
-    router1.discard_config()  # 불러온 설정을 버립니다.
+    R1.discard_config()  # 불러온 설정을 버립니다.
 
 R1.close()  
 
