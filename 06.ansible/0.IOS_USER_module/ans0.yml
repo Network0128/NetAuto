@@ -2,6 +2,6 @@
 - hosts: all
   gather_facts: no
   tasks:
-  - name: Print message
+  - name: Show Hello World
     debug: #화면에 출력해주는 모듈
       msg: Hello World!
