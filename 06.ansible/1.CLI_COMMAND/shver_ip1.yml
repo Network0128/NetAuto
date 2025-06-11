@@ -6,7 +6,8 @@
   tasks: #한번에 하나의 명령어씩 처리
     - name: Run 'show version' command
       cisco.ios.ios_command:
-        commands: show version
+        commands: 
+          - show version
       register: result_version
 
     - name: Print 'show version' output
@@ -15,7 +16,8 @@
 
     - name: Run 'show ip int brief' command
       cisco.ios.ios_command:
-        commands: show ip int brief
+        commands: 
+          - show ip int brief
       register: result_ip
 
     - name: Print 'show ip int brief' output
