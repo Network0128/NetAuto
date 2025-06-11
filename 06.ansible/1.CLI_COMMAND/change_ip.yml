@@ -1,39 +1,27 @@
 ---
-- name: Configure Loopback IP and verify on Cisco routers
+- name: Configure Loopback interface and verify
   hosts: routers
   gather_facts: no
 
   tasks:
-    - name: Configure IP address on Loopback1
+    - name: Configure IP on Loopback10
       cisco.ios.ios_config:
         lines:
           - interface Loopback10
-          - ip address 3.3.3.3 255.255.255.0
+          - ip address 4.4.4.4 255.255.255.0
           - no shutdown
-      register: config_result
 
-    - name: Save configuration to startup-config
+    - name: Save running-config to startup-config
       cisco.ios.ios_command:
         commands:
           - write memory
-      register: save_result
 
-    - name: Verify Loopback1 interface config
+    - name: Verify interface brief status
       cisco.ios.ios_command:
         commands:
-          - show running-config interface Loopback1
-      register: show_run_loopback
+          - show ip int br
+      register: result
 
-    - name: Print Loopback1 configuration
+    - name: Show Loopback10 config
       ansible.builtin.debug:
-        msg: "{{ show_run_loopback.stdout[0] }}"
-
-    - name: Show IP interface brief
-      cisco.ios.ios_command:
-        commands:
-          - show ip interface brief
-      register: show_ip_int_br
-
-    - name: Display IP interface brief output
-      ansible.builtin.debug:
-        msg: "{{ show_ip_int_br.stdout[0] }}"
+        var: result.stdout_lines
