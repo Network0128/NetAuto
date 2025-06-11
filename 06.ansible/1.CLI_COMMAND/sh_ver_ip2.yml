@@ -1,0 +1,16 @@
+---
+- name: Run multiple IOS commands using ios_command
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+    - name: Run multiple commands
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show ip int brief
+      register: output
+
+    - name: Print command outputs
+      ansible.builtin.debug:
+        var: output.stdout_lines
