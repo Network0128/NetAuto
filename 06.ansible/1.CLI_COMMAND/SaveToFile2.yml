@@ -1,6 +1,6 @@
 ---
 - name: Backup sh ip int br and sh run 
-  hosts: all
+  hosts: gns3
   gather_facts: no
 
   tasks:
