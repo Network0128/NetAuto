@@ -18,6 +18,6 @@
 
     - name: Save output to a file
       ansible.builtin.copy: #파일 복사 모듈
-        content: "{{ output.stdout[0] }}" #복사할 파일의 내용을 지정
-        dest: "./output/{{ inventory_hostname }}.txt" #원격 위치 지정
+        content: "{{ output.stdout[0] }}" # stdout[0] : 그 명령 전체의 결과를 하나의 문자열로 출력 → 줄바꿈 포함된 단일 문자열
+        dest: "./output/{{ inventory_hostname }}.txt" # 위치 지정
 
