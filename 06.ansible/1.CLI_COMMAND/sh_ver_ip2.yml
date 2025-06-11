@@ -14,3 +14,15 @@
     - name: Print command outputs
       ansible.builtin.debug:
         var: output.stdout_lines
+
+
+//출력 부분을 아래와 같이 나눠서 출력 가능
+    - name: Print command outputs 'sh version'
+      ansible.builtin.debug:
+        var: output.stdout_lines[0]
+
+    - name: Print command outputs 'sh ip int br'
+      ansible.builtin.debug:
+        var: output.stdout_lines[1]
+
+        
