@@ -1,12 +1,13 @@
 ---
 - name: Get ARP information
-  hosts: all
+  hosts: gns3
   gather_facts: no
 
   tasks:
     - name: Show arp table
-      ansible.netcommon.cli_command: #해당 컬렉션 이미 설치 되어 있음
-        command: show arp
+      cisco.ios.ios_command:
+        commands:
+          - show arp
       register: result
 
     - name: Result of show arp command
