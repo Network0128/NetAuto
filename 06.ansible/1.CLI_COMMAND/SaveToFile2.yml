@@ -1,5 +1,5 @@
 ---
-- name: Backup sh run and sh ip int br
+- name: Backup sh ip int br and sh run 
   hosts: all
   gather_facts: no
 
@@ -8,7 +8,7 @@
       cisco.ios.ios_command:
         commands:
           - show ip int br
-          - sh version
+          - sh run
       register: output
 
     - name: Debug print output
