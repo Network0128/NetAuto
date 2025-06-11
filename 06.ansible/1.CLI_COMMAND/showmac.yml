@@ -1,12 +1,13 @@
 ---
 - name: Get MAC address table information
-  hosts: all
+  hosts: switches
   gather_facts: no
 
   tasks:
     - name: Show MAC address table
-      ansible.netcommon.cli_command: #해당 컬렉션 이미 설치 되어 있음
-        command: show mac address-table
+      cisco.ios.ios_command:
+        commands:
+          - show mac address-table
       register: result
 
     - name: Result of show mac address-table command
