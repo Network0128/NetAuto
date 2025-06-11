@@ -4,20 +4,16 @@
   gather_facts: no
 
   tasks:
-    - name: Run single command on remote nodes
-      ansible.netcommon.cli_command:
-        command: show version
-      # 안될경우 사용
-      # ios_command:
-      #  commands: show version
+    - name: Run 'show version' on Cisco device
+      cisco.ios.ios_command:
+        commands: show version
       register: output
 
     - name: Debug print output
       ansible.builtin.debug:
         var: output.stdout_lines
 
-    - name: Save output to a file
-      ansible.builtin.copy: #파일 복사 모듈
-        content: "{{ output.stdout[0] }}" # stdout[0] : 그 명령 전체의 결과를 하나의 문자열로 출력 → 줄바꿈 포함된 단일 문자열
-        dest: "./output/{{ inventory_hostname }}.txt" # 위치 지정
-
+    - name: Save output to file
+      ansible.builtin.copy:
+        content: "{{ output.stdout_lines }}"
+        dest: "./output/{{ inventory_hostname }}.txt"
