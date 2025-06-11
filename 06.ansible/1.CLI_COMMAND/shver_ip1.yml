@@ -5,8 +5,8 @@
 
   tasks: #한번에 하나의 명령어씩 처리
     - name: Run 'show version' command
-      ansible.netcommon.cli_command:
-        command: show version
+      cisco.ios.ios_command:
+        commands: show version
       register: result_version
 
     - name: Print 'show version' output
@@ -14,8 +14,8 @@
         var: result_version.stdout_lines
 
     - name: Run 'show ip int brief' command
-      ansible.netcommon.cli_command:
-        command: show ip int brief
+      cisco.ios.ios_command:
+        commands: show ip int brief
       register: result_ip
 
     - name: Print 'show ip int brief' output
