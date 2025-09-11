@@ -17,5 +17,5 @@ with open('all_devices') as f: (with 구문 사용으로 자동 close)
             tn.write(b"terminal length 0\nsh run\nexit\n")
     
             # 출력을 파일에 저장 (with 구문 사용으로 자동 close)
-            with open(f'device_{IP}', 'w') as save_output:
-                save_output.write(tn.read_all().decode('ascii'))           
+            with open(f'device_{IP}', 'w') as save:
+                save.write(tn.read_all().decode('ascii'))           
