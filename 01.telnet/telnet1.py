@@ -4,7 +4,7 @@ import getpass  # 필요한 라이브러리 임포트
 import telnetlib
 
 HOST = "10.1.1.21"  # 텔넷 서버 호스트 주소 설정
-user = input("Enter your telnet username: ")  # 사용자 원격 계정 입력 받음
+username = input("Enter your telnet username: ")  # 사용자 원격 계정 입력 받음
 password = getpass.getpass()  # 사용자에게 비밀번호 입력을 요청할 때 "Password: "라는 프롬프트가 화면에 표시
 
 #password = getpass.getpass("Enter your telnet password: ") 사용자에게 "Enter your telnet password: "라고 표시
@@ -12,7 +12,7 @@ password = getpass.getpass()  # 사용자에게 비밀번호 입력을 요청할
 tn = telnetlib.Telnet(HOST)  # 지정된 호스트로 텔넷 연결 시작
 
 tn.read_until(b"Username: ")  # 사용자 이름 입력 대기
-tn.write(user.encode('ascii') + b"\n")  # 사용자 이름 전송
+tn.write(username.encode('ascii') + b"\n")  # 사용자 이름 전송
 if password:
     tn.read_until(b"Password: ")  # 비밀번호 입력 대기
     tn.write(password.encode('ascii') + b"\n")  # 비밀번호 전송
