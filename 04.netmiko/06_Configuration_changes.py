@@ -67,3 +67,36 @@ for device in (router1, switch1, switch2, switch3):
         #output += net_connect.send_command(command)        
         print(output)
         print()
+
+------------------------------------------------------
+결과 파일로 저장
+
+command=["int l0","ip add 1.1.1.1 255.255.255.0"]
+
+for device in (router1, router2, switch1, switch2, switch3):
+    with ConnectHandler(**device) as net_connect:
+        print(net_connect.find_prompt())
+        output = net_connect.send_config_set(command)
+        output += net_connect.save_config()
+        with open(f"{device['host']}.txt", "w") as f:
+            f.write(output)
+
+
+------------------------------------------------------
+조회후 결과까지 파일로 저장
+
+command=["int l0","ip add 1.1.1.1 255.255.255.0"]
+
+for device in (router1, router2, switch1, switch2, switch3):
+    with ConnectHandler(**device) as net_connect:
+        print(net_connect.find_prompt())
+        output = net_connect.send_config_set(command)
+        output += net_connect.save_config()
+        show_output = net_connect.send_command("show ip interface brief")
+        with open(f"{device['host']}.txt", "w") as f:
+            f.write(output)
+            f.write("\n----- show ip int br -----\n")
+            f.write(show_output)
+
+
+
