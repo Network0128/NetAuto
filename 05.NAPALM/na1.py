@@ -5,6 +5,7 @@ import napalm  # napalm 라이브러리 가져오기
 
 # 드라이버 설정 : 접속하는 장비의 유형('ios', 'nxos', 'junos' 등)
 driver = napalm.get_network_driver('ios')  # 'ios' 드라이버 가져오기
+
 # 장비에 연결
 device = driver(hostname='10.1.1.21', username='ccnp', password='cisco')  # 장치 연결 정보 설정
 device.open()  # 장치에 연결 시작
