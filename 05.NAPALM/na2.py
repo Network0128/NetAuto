@@ -5,14 +5,14 @@ from napalm import get_network_driver  # napalm 라이브러리에서 get_networ
 driver = get_network_driver('ios')  # 'ios' 드라이버 가져오기
 device = driver(hostname='10.1.1.21', username='ccnp', password='cisco')  # 장치 연결 정보 설정
 device.open()  # 장치에 연결 시작
-interfaces = device.get_interfaces()  # 모든 인터페이스 정보 가져오기
+interface = device.get_interfaces()  # 모든 인터페이스 정보 가져오기
 print(interfaces)  # 인터페이스 정보 출력
 device.close()  # 장치 연결 종료
 
 ---------------------------------------------------
 # 인터페이스 정보 출력부분만 아래와 같이 수정
 
-for interface_name in interface:  <- 문장은 딕셔너리의 key만 반복해서 꺼내오는 구조다
+for interface_name in interface:                      # 이 부분은 딕셔너리의 key만 반복해서 꺼내오는 구조다
     print(interface_name, interface[interface_name])  # 각 인터페이스의 이름과 상세 정보 출력
 
 # interface : 모든 인터페이스 정보를 담은 dictionary
