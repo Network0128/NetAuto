@@ -4,13 +4,13 @@ from napalm import get_network_driver  # 멀티 벤더 지원을 위한 NAPALM �
 import json                            # 결과 데이터를 사람이 읽기 편하게 가공하는 도구
 
 driver = get_network_driver('ios')     # 타겟 장비의 OS(Cisco IOS)에 맞는 드라이버 클래스 호출
-SW1 = driver('10.1.1.11', 'ccnp', 'cisco')  # 장비 접속 객체 생성 (IP, 계정 정보 설정 - 아직 연결 안 됨)
-SW1.open()                             # SSH 세션을 열고 실제 장비에 로그인 수행
+switch1 = driver('10.1.1.11', 'ccnp', 'cisco')  # 장비 접속 객체 생성 (IP, 계정 정보 설정 - 아직 연결 안 됨)
+switch1.open()                             # SSH 세션을 열고 실제 장비에 로그인 수행
 
-output = SW1.get_facts()               # 장비의 고유 정보(버전, 시리얼, 호스트명 등)를 딕셔너리로 수집
+output = switch1.get_facts()               # 장비의 고유 정보(버전, 시리얼, 호스트명 등)를 딕셔너리로 수집
 print(json.dumps(output, indent=4))    # 수집된 딕셔너리를 보기 좋게 JSON 포맷(4칸 들여쓰기)으로 출력
 
-SW1.close()                            # 작업 완료 후 세션 종료 (VTY 라인 점유 해제 및 리소스 반환)
+switch1.close()                            # 작업 완료 후 세션 종료 (VTY 라인 점유 해제 및 리소스 반환)
 
 ---------------------------------
 
