@@ -1,3 +1,12 @@
+깔끔한 실습을 위해 각 장비에서 배너 off
+conf t
+no banner motd
+no banner login
+no banner exec
+end
+wr
+
+
 #Ubuntu To R1
 #라우터에 접속하여 루프백 인터페이스를 생성하고 조회하는 파이썬 자동화 코드를 완성하시오.
 import getpass  # 필요한 라이브러리 임포트
