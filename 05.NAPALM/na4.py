@@ -20,3 +20,44 @@ output = switch1.ping(destination_ip)
 print(json.dumps(output, indent=4))
 
 switch1.close()                        # 작업 완료 후 세션 종료 (필수)
+
+----------------------------------------------------------------------------------
+
+gns 가상 장비의 느린 시간으로 실행이 안될 경우 아래와 같이 수정
+
+우선 스위치에서 banner 제거 설정
+SW1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+SW1(config)#no banner motd
+SW1(config)#no banner login
+SW1(config)#no banner exec
+SW1(config)#end
+SW1#wr
+
+import socket
+import json
+from napalm import get_network_driver
+
+driver = get_network_driver('ios')
+
+# 1. secret 제거: SSH 접속 시 바로 # 모드인 것이 확인되었으므로 불필요
+# 2. global_delay_factor 유지: GNS3가 느리므로 5배 정도 여유를 줌
+switch1 = driver(
+    '10.1.1.11', 
+    'ccnp', 
+    'cisco', 
+    optional_args={'global_delay_factor': 5}
+)
+
+switch1.open()
+
+target_ip = socket.gethostbyname('google.com')
+print(f"Pinging {target_ip}...")
+
+# 핵심 해결책: count=2 옵션 추가
+# 설명: "5번 다 쏘지 말고 2번만 쏴라. 빨리 끝내자."
+output = switch1.ping(target_ip, count=1)
+
+print(json.dumps(output, indent=4))
+
+switch1.close()
