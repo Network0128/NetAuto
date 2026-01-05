@@ -1,13 +1,28 @@
 # NAPALM 라이브러리를 사용하여 특정 네트워크 장치(‘ios’)에 연결하고, 
 # 해당 장치의 모든 인터페이스 정보 출력
 
-from napalm import get_network_driver  # napalm 라이브러리에서 get_network_driver 함수 가져오기
-driver = get_network_driver('ios')  # 'ios' 드라이버 가져오기
-device = driver(hostname='10.1.1.21', username='ccnp', password='cisco')  # 장치 연결 정보 설정
-device.open()  # 장치에 연결 시작
-interface = device.get_interfaces()  # 모든 인터페이스 정보 가져오기
-print(interfaces)  # 인터페이스 정보 출력
-device.close()  # 장치 연결 종료
+from napalm import get_network_driver      # 드라이버 함수만 명시적으로 가져오기 (메모리 효율 및 코드 간결성)
+import json                                # 데이터를 보기 좋게 정렬(Pretty Print)하기 위한 라이브러리
+
+# 1. 드라이버 로드
+driver = get_network_driver('ios')         # Cisco IOS용 드라이버 선택
+
+# 2. 장비 연결 객체 생성
+device = driver(hostname='10.1.1.21', username='ccnp', password='cisco')
+
+# 3. 세션 연결
+device.open()                              # SSH 로그인 수행
+
+# 4. 인터페이스 정보 수집
+# 모든 인터페이스의 상태(Up/Down), MAC 주소, 속도, MTU 등을 수집
+interfaces = device.get_interfaces()       # 원본 코드의 변수명 오류 수정 (interface -> interfaces)
+
+# 5. 결과 출력 (JSON Formatting)
+# indent=4 옵션을 주어 계층 구조를 시각적으로 명확하게 표현
+print(json.dumps(interfaces, indent=4))
+
+# 6. 세션 종료
+device.close()                             # 작업 완료 후 연결 해제
 
 ---------------------------------------------------
 # 인터페이스 정보 출력부분만 아래와 같이 수정
