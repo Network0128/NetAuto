@@ -1,4 +1,4 @@
-장비 연결 → 정보 수집(Facts) → 데이터 시각화(JSON) → 종료"**라는 가장 기초적인 자동화 흐름
+장비 연결 → 정보 수집(Facts) → 데이터 시각화(JSON) → 종료" 라는 가장 기초적인 자동화 흐름
 
 from napalm import get_network_driver  # 멀티 벤더 지원을 위한 NAPALM 핵심 드라이버 로드
 import json                            # 결과 데이터를 사람이 읽기 편하게 가공하는 도구
