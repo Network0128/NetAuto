@@ -1,7 +1,7 @@
 #napalm 라이브러리를 사용하여 특정 네트워크 장치(‘ios’)에 연결하고, 
 #해당 장치로부터 정보를 가져와 출력하는 과정을 수행
 
-import napalm                              # NAPALM 라이브러리 전체를 임포트 (모듈 구조 확인용)
+import napalm         # NAPALM 라이브러리 전체를 임포트 (모듈 구조 확인용)
 
 # 1. 드라이버 객체 생성
 # 'ios'는 Cisco 라우터/스위치용이며, 'junos', 'eos', 'nxos' 등으로 변경 가능
