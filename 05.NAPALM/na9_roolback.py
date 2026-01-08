@@ -12,7 +12,6 @@ switch1 = driver(
         'global_delay_factor': 20,     # 명령어 반응 대기 (느림보 장비용)
         'conn_timeout': 60,            # SSH 접속 대기 (문 열어줄 때까지 1분 기다림)
         'dest_file_system': 'flash0:', # 파일 저장 위치 고정
-        'session_log': 'debug.log'     # 로그 기록
     }
 )
 
