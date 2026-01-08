@@ -3,15 +3,14 @@ from napalm import get_network_driver
 
 driver = get_network_driver('ios')
 
-# [핵심] conn_timeout을 60초까지 늘려서 무조건 접속되게 설정
 switch1 = driver(
     '10.1.1.11', 
     'ccnp', 
     'cisco', 
     optional_args={
         'global_delay_factor': 20,     # 명령어 반응 대기 (느림보 장비용)
-        'conn_timeout': 60,            # SSH 접속 대기 (문 열어줄 때까지 1분 기다림)
         'dest_file_system': 'flash0:', # 파일 저장 위치 고정
+        'timeout': 120                 # 명령어가 완료될 때까지 최대 2분 기다림
     }
 )
 
