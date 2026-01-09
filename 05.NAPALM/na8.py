@@ -4,7 +4,7 @@
 
 from napalm import get_network_driver 
 
-devices = ['10.1.1.11', '10.1.1.12', '10.1.1.13']  # 장비 IP 주소 리스트
+devices = ['10.1.1.11', '10.1.1.12', '10.1.1.13']  # 장비 IP 주소 리스트 -> 이후에 10.1.1.21, 10.1.1.22 도 추가
 
 for IP in devices:  # devices 리스트의 각 IP 주소에 대해 반복 실행
     print(f"Connecting to {IP}")  # 현재 연결 중인 장비 IP 주소 출력
