@@ -32,20 +32,20 @@ discard: 장바구니 비우기. (구매 취소)
 ------------------------------------------------------------------------------------------------------------------------------------------
 from napalm import get_network_driver 
 driver = get_network_driver('ios')                  
-switch1 = driver('10.1.1.11', 'ccnp', 'cisco') 
+device = driver('10.1.1.11', 'ccnp', 'cisco') 
 # 필요에 따라 위에 다음을 추가: ​​optional_args={'dest_file_system': 'flash0:'}  # 명령어 실행 결과를 특정 파일 시스템에 저장하기 위한 선택적 인자를 설정할 수 있습니다.
 
-switch1.open()  # 장비에 연결을 시작합니다.
+device.open()  # 장비에 연결을 시작합니다.
 
 print('Accessing 10.1.1.11')                 # 스위치 접근 시작을 알립니다.
 
-switch1.load_merge_candidate(filename='Merge1.cfg')  # 'Merge1.cfg' 파일에서 새 설정을 불러와 현재 구성과 병합합니다.
-# switch1.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg')  실행이 안될경우 절대경로 사용
+device.load_merge_candidate(filename='Merge1.cfg')  # 'Merge1.cfg' 파일에서 새 설정을 불러와 현재 구성과 병합합니다.
+# device.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg')  실행이 안될경우 절대경로 사용
 
-print(switch1.compare_config())              # 현재 구성과 새로 불러온 구성 사이의 차이점을 확인합니다.
-switch1.commit_config()                      # 변경 사항을 커밋(적용)합니다.
+print(device.compare_config())              # 현재 구성과 새로 불러온 구성 사이의 차이점을 확인합니다.
+device.commit_config()                      # 변경 사항을 커밋(적용)합니다.
 
-switch1.close()                              # 장비와의 연결을 종료합니다.
+device.close()                              # 장비와의 연결을 종료합니다.
 
 
 
