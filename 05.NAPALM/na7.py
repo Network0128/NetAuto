@@ -4,31 +4,31 @@
 
 from napalm import get_network_driver 
 driver = get_network_driver('ios')  
-switch2 = driver('10.1.1.12', 'ccnp', 'cisco') 
-switch2.open() 
+device = driver('10.1.1.12', 'ccnp', 'cisco') 
+device.open() 
 
 print('Accessing 10.1.1.12') 
-switch2.load_merge_candidate(filename='Merge1.cfg') 
-#switch2.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg') 
+device.load_merge_candidate(filename='Merge1.cfg') 
+#device.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/Merge1.cfg') 
 
-diffs = switch2.compare_config()  # 현재 구성과 새로 불러온 구성 사이의 차이점을 비교합니다.
+diffs = device.compare_config()  # 현재 구성과 새로 불러온 구성 사이의 차이점을 비교합니다.
 if len(diffs) > 0:  # 차이점이 있다면,
     print(diffs)  # 차이점을 출력합니다.
-    switch2.commit_config()  # 변경 사항을 커밋하여 실제로 적용합니다.
+    device.commit_config()  # 변경 사항을 커밋하여 실제로 적용합니다.
 else:  # 차이점이 없다면,
     print('No change : ACL, loopback')  # ACL이나 루프백 설정에 변화가 없음을 알리고,
-    switch2.discard_config()  # 준비된 변경 사항을 버립니다.
+    device.discard_config()  # 준비된 변경 사항을 버립니다.
 
-switch2.load_merge_candidate(filename='ospf1.cfg')  # 'ospf1.cfg' 파일에서 새 OSPF 설정을 불러와 현재 구성과 병합할 준비를 합니다.
-#switch2.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/ospf1.cfg')
+device.load_merge_candidate(filename='ospf1.cfg')  # 'ospf1.cfg' 파일에서 새 OSPF 설정을 불러와 현재 구성과 병합할 준비를 합니다.
+#device.load_merge_candidate(filename='/home/ubuntu/PythonHome/4.napalm/ospf1.cfg')
 
-diffs = switch2.compare_config()  # 현재 구성과 새로 불러온 OSPF 구성 사이의 차이점을 다시 비교합니다.
+diffs = device.compare_config()  # 현재 구성과 새로 불러온 OSPF 구성 사이의 차이점을 다시 비교합니다.
 if len(diffs) > 0:  # OSPF 설정에 차이점이 있다면,
     print(diffs)  # 차이점을 출력합니다.
-    switch2.commit_config()  # OSPF 설정 변경 사항을 커밋하여 실제로 적용합니다.
+    device.commit_config()  # OSPF 설정 변경 사항을 커밋하여 실제로 적용합니다.
 else:  # OSPF 설정에 차이점이 없다면,
     print('No change : OSPF')  # OSPF 설정에 변화가 없음을 알리고,
-    switch2.discard_config()  # 준비된 변경 사항을 버립니다.
+    device.discard_config()  # 준비된 변경 사항을 버립니다.
 
-switch2.close()  
+device.close()  
 
