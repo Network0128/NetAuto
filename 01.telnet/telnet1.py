@@ -1,3 +1,14 @@
+en\n
+conf t\n
+line con 0\n
+logging syn\n
+privilege level 15\n
+exec-t 0\n
+exit\n
+no ip domain lookup\n
+hostname 
+
+
 깔끔한 실습을 위해 각 장비에서 배너 off
 conf t
 no banner motd
