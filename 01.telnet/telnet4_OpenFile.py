@@ -10,23 +10,17 @@ f = open('myswitches') #relative Path : 파일을 못찾는 경우 해당 파일
 
 for IP in f:
     IP = IP.strip()
-    print('Configuring Switch ' + IP)
+    print(f'Configuring Switch {IP}')
     tn = telnetlib.Telnet(IP)
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
-    if password:
-        tn.read_until(b"Password: ")
-        tn.write(password.encode('ascii') + b"\n")
+    tn.read_until(b"Password: ")
+    tn.write(password.encode('ascii') + b"\n")
 
     tn.write(b"conf t\n")
-    tn.write(b"vlan 2\n")
-    tn.write(b"name Python_VLAN_2\n")
-    tn.write(b"vlan 3\n")
-    tn.write(b"name Python_VLAN_3\n")
-    tn.write(b"vlan 4\n")
-    tn.write(b"name Python_VLAN_4\n")
-    tn.write(b"vlan 5\n")
-    tn.write(b"name Python_VLAN_5\n")
+    for i in range(2,11):
+        tn.write(b'vlan '+str(i).encode('ascii')+ b"\n")
+        tn.write(b'name Python_VLAN_'+str(i).encode('ascii')+ b"\n")
     tn.write(b"end\n")
     tn.write(b"wr\n")
     tn.write(b"exit\n")
