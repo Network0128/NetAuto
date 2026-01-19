@@ -60,10 +60,10 @@ with open('myswitches') as f:
 ----------------------------
 # 파일을 사용하지 않을 경우 : 실습 1 단계
 myswitches = ("10.1.1.11","10.1.1.12","10.1.1.13")  #list, tuple, set, dictionary 모두 가능 주로 불변성의 튜플 사용
-for HOST in myswitches:
-    print("지금 접속 장비의 IP : ", HOST)
+for IP in myswitches:
+    print("지금 접속 장비의 IP : ", IP)
     for n in range(2,11):
-        print("vlan " + str(n),end='\n')
+        print("vlan " + str(n))
         print("name Python_VLAN_" + str(n))  
     print() 
 ----------------------------
@@ -78,9 +78,8 @@ for IP in myswitches:
     tn = telnetlib.Telnet(IP)
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
-    if password:
-        tn.read_until(b"Password: ")
-        tn.write(password.encode('ascii') + b"\n")
+    tn.read_until(b"Password: ")
+    tn.write(password.encode('ascii') + b"\n")
     tn.write(b"sh vlan br\n")
     tn.write(b"exit\n")
     print(tn.read_all().decode('ascii'))
