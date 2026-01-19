@@ -31,12 +31,12 @@ import telnetlib
 #HOST = "10.1.1.11"
 user = "ccnp"
 password = "cisco"
-#myswitches=("10.1.1.11","10.1.1.12","10.1.1.13")  # <- 여러대의 스위치 목록들을 파일 단위로 관리
+myswitches=("10.1.1.11","10.1.1.12","10.1.1.13")  # <- 여러대의 스위치 목록들을 파일 단위로 관리
 with open('myswitches') as f:
-    for HOST in f:
-        HOST=HOST.strip()
-        print("Switch's IP add: ",HOST)
-        tn = telnetlib.Telnet(HOST)
+    for IP in f:
+        IP=IP.strip()
+        print("Switch's IP add: ",IP)
+        tn = telnetlib.Telnet(IP)
         tn.read_until(b"Username: ")
         tn.write(user.encode('ascii') + b"\n")
         tn.read_until(b"Password: ")
@@ -44,7 +44,7 @@ with open('myswitches') as f:
         tn.write(b"terminal length 0\n")
         tn.write(b"sh run\n")
         tn.write(b"exit\n")
-        save=open(f'switch_{HOST}','w')
+        save=open(f'switch_{IP}','w')
         save.write(tn.read_all().decode('ascii'))
         save.close
 
