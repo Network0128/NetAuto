@@ -48,7 +48,7 @@ with open('myswitches') as f:
         tn.read_until(b"Password: ")
         tn.write(password.encode('ascii') + b"\n")
         tn.write(b"conf t\n")
-        # tn.write(b"no vlan 2-10\n") <- 시간 차이로 실행시 오류 발생 확율 높음
+        # tn.write(b"no vlan 2-10\n") <- \n 개행문자 삽입 주의
         for i in range(2,11):
             tn.write(b'vlan '+str(i).encode('ascii')+ b"\n")
             tn.write(b'name Python_VLAN_'+str(i).encode('ascii')+ b"\n")
