@@ -1,5 +1,5 @@
 # Ubuntu To multiple switch
-#접속 대상 장비들을 파일로 만들어서 반복문과 함께 실행하는 파이썬 자동화 코드를 완성하시오.
+# 접속 대상 장비들을 파일로 만들어서 반복문과 함께 실행하는 파이썬 자동화 코드를 완성하시오.
 import telnetlib
 
 user = 'ccnp'
@@ -28,15 +28,15 @@ for IP in f:
 ------------with as 구문, for 문 사용
 import telnetlib
 
-#HOST = "10.1.1.11"
 user = "ccnp"
 password = "cisco"
-#myswitches=("10.1.1.11","10.1.1.12","10.1.1.13")  # <- 여러대의 스위치 목록들을 파일 단위로 관리
+myswitches=("10.1.1.11","10.1.1.12","10.1.1.13")  # <- 여러대의 스위치 목록들을 파일 단위로 관리
+
 with open('myswitches') as f:
-    for HOST in f:
-        HOST=HOST.strip()
-        print("Switch's IP add: ",HOST)
-        tn = telnetlib.Telnet(HOST)
+    for IP in f:
+        IP=IP.strip()
+        print("Switch's IP add: ",IP)
+        tn = telnetlib.Telnet(IP)
         tn.read_until(b"Username: ")
         tn.write(user.encode('ascii') + b"\n")
         tn.read_until(b"Password: ")
