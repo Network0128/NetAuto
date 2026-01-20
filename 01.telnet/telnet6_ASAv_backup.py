@@ -22,6 +22,37 @@ with open(f"devices_{IP}","w") as save:
 
 print(f"설정파일 저장완료: devices_{IP}")
 
+--------------------------------------------
+모든 장비의 설정 파일 백업
+
+import telnetlib
+username = "ccnp"
+password = "cisco"
+
+with open('mydevices') as file:
+    for IP in file:
+        IP = IP.strip()  
+        print(f"지금 접속한 장비의 IP: {IP}")
+        tn = telnetlib.Telnet(IP)
+        tn.read_until(b"Username: ")
+        tn.write(username.encode('ascii') + b"\n")
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
+        
+        if IP == "10.1.1.31":
+            print(" >> 방화벽(ASA) 감지: terminal pager 0 실행")
+            tn.write(b"terminal pager 0\n")
+        else:
+            print(" >> 일반 장비(IOS) 감지: terminal length 0 실행")
+            tn.write(b"terminal length 0\n")
+        
+        #tn.write(b"terminal length 0\n")
+        tn.write(b"show run\n")
+        tn.write(b"exit\n")
+        #print(tn.read_all().decode('ascii'))
+        with open(f"devices_{IP}","w") as save:
+            save.write(tn.read_all().decode('ascii'))
+        print(f"설정파일 저장완료: devices_{IP}")
 
 ---------------------------------------------
 실행이 안될 경우, 아래 파일로 진행
