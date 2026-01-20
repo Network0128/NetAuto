@@ -2,7 +2,30 @@ telnet 10.1.1.0 255.255.255.0 inside
 aaa authentication telnet console LOCAL
 aaa authorization exec LOCAL auto-enable
 
-# \r\n 을 사용한다.
+
+우분투에서 방화벽을 대상으로 각종 정보를 조회하는 코드
+
+import telnetlib
+
+IP = "10.1.1.31"
+username = "ccnp"
+password = "cisco"
+
+tn = telnetlib.Telnet(IP)
+
+tn.read_until(b"Username: ")
+tn.write(username.encode('ascii') + b"\n")
+tn.read_until(b"Password: ")
+tn.write(password.encode('ascii') + b"\n")
+
+tn.write(b"terminal pager 0\n")
+tn.write(b"show route\n")      ← sh int ip br/ sh run 도 실습(학원PC에서는 성공)
+tn.write(b"exit\n")
+
+print(tn.read_all().decode('ascii'))
+
+---
+# 위의 코드가 실행이 안될 경우, 아래와 같이 \r\n 을 사용한다.
 
 import telnetlib
 
