@@ -1,3 +1,32 @@
+방화벽의 설정파일을 파일로 저장하시오.
+import telnetlib
+
+IP = "10.1.1.31"
+username = "ccnp"
+password = "cisco"
+
+tn = telnetlib.Telnet(IP)
+
+tn.read_until(b"Username: ")
+tn.write(username.encode('ascii') + b"\n")
+tn.read_until(b"Password: ")
+tn.write(password.encode('ascii') + b"\n")
+
+tn.write(b"terminal pager 0\n")
+tn.write(b"show run\n")
+tn.write(b"exit\n")
+
+#print(tn.read_all().decode('ascii'))
+with open(f"devices_{IP}","w") as save:
+    save.write(tn.read_all().decode('ascii'))
+
+print(f"설정파일 저장완료: devices_{IP}")
+
+
+---------------------------------------------
+실행이 안될 경우, 아래 파일로 진행
+
+
 import telnetlib
 
 # 1. 설정 변수
