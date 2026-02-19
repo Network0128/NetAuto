@@ -49,7 +49,18 @@ for device in (router1, switch1, switch2, switch3):
 ㅁ 여러 장비에 차례대로 리스트로 되어 있는 여러 명령어를 실행할 경우 ㅁ
 commands=["show ip int brief","show ip arp"]
 
-for device in (router1, switch1, switch2, switch3):
+for device in (router1, router2, switch1, switch2, switch3):
+    with ConnectHandler(**device) as net_connect:
+        for cmd in commands:
+            print(net_connect.find_prompt())
+            print(net_connect.send_command(cmd))
+            print()
+
+---------------------------------------------------------------------------
+ㅁ 조회 후 결과 파일로 저장 까지 ㅁ
+commands=["show ip int brief","show ip arp"]
+
+for device in (router1, router2, switch1, switch2, switch3):
     with ConnectHandler(**device) as net_connect:
         for cmd in commands:
             print(net_connect.find_prompt())
