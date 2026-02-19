@@ -9,6 +9,13 @@ router1 = {
     "password": "cisco",
 }
 
+router2 = {
+    "device_type": "cisco_ios",
+    "host": "10.1.1.21",
+    "username": "ccnp",
+    "password": "cisco",
+}
+
 switch1 = {
     "device_type": "cisco_ios",
     "host": "10.1.1.11",
@@ -35,8 +42,7 @@ command="show ip int brief"
 for device in (router1, switch1, switch2, switch3):
     with ConnectHandler(**device) as net_connect:
         print(net_connect.find_prompt())
-        output=net_connect.send_command(command)
-        print(output)
+        print(net_connect.send_command(command))
         print()
 
 ---------------------------------------------------------------------------
