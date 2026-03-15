@@ -39,7 +39,7 @@ switch3 = {
 
 command="show ip int brief"
 
-for device in (router1, switch1, switch2, switch3):
+for device in (router1, router2, switch1, switch2, switch3):
     with ConnectHandler(**device) as net_connect:
         print(net_connect.find_prompt())
         print(net_connect.send_command(command))
