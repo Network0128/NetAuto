@@ -25,7 +25,7 @@ print()
 print(output)
 print()
 --------------------------------------------------------------
-#여러 장비에 동시에 설정 및 저장
+#여러 장비에 동시에 설정 및 장비에 저장명령어(wr) 실행
 from netmiko import ConnectHandler
 
 router1 = {
