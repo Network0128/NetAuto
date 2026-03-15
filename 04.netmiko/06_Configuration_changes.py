@@ -35,6 +35,13 @@ router1 = {
     "password": "cisco",
 }
 
+router2 = {
+    "device_type": "cisco_ios",
+    "host": "10.1.1.22",
+    "username": "ccnp",
+    "password": "cisco",
+}
+
 switch1 = {
     "device_type": "cisco_ios",
     "host": "10.1.1.11",
@@ -69,14 +76,14 @@ for device in (router1, switch1, switch2, switch3):
         print()
 
 ------------------------------------------------------
-결과 파일로 저장
+결과를 우분투에서 파일로 저장
 
-command=["int l0","ip add 1.1.1.1 255.255.255.0"]
+commands = ["int l0","ip add 1.1.1.1 255.255.255.0"]
 
 for device in (router1, router2, switch1, switch2, switch3):
     with ConnectHandler(**device) as net_connect:
         print(net_connect.find_prompt())
-        output = net_connect.send_config_set(command)
+        output = net_connect.send_config_set(commands)
         output += net_connect.save_config()
         with open(f"{device['host']}.txt", "w") as f:
             f.write(output)
@@ -85,12 +92,12 @@ for device in (router1, router2, switch1, switch2, switch3):
 ------------------------------------------------------
 조회후 결과까지 파일로 저장
 
-command=["int l0","ip add 1.1.1.1 255.255.255.0"]
+commands=["int l0","ip add 1.1.1.1 255.255.255.0"]
 
 for device in (router1, router2, switch1, switch2, switch3):
     with ConnectHandler(**device) as net_connect:
         print(net_connect.find_prompt())
-        output = net_connect.send_config_set(command)
+        output = net_connect.send_config_set(commands)
         output += net_connect.save_config()
         show_output = net_connect.send_command("show ip interface brief")
         with open(f"{device['host']}.txt", "w") as f:
