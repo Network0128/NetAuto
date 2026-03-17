@@ -85,7 +85,7 @@ for device in (router1, router2, switch1, switch2, switch3):
         print(net_connect.find_prompt())
         output = net_connect.send_config_set(commands)
         output += net_connect.save_config()
-        with open(f"{device['host']}.txt", "w") as f:
+        with open(f"{device['host']}.txt", "w") as f:   #'host'는 ip 주소를 나타내는데, 생성되는 파일의 장비를 구분하게 된다.
             f.write(output)
 
 
