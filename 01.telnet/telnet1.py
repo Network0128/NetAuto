@@ -1,11 +1,16 @@
 en\n
 conf t\n
+no banner motd\n
+no banner login\n
+no banner exec\n
+no logging console\n
 line con 0\n
 logging syn\n
 privilege level 15\n
 exec-t 0\n
 exit\n
 no ip domain lookup\n
+no cdp run\n
 hostname 
 
 
@@ -14,6 +19,7 @@ conf t
 no banner motd
 no banner login
 no banner exec
+no logging console
 end
 wr
 
