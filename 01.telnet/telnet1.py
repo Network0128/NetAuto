@@ -17,7 +17,6 @@ no banner exec
 end
 wr
 
-
 #Ubuntu To R1
 #라우터에 접속하여 루프백 인터페이스를 생성하고 조회하는 파이썬 자동화 코드를 완성하시오.
 import getpass  # 필요한 라이브러리 임포트
@@ -67,7 +66,36 @@ print(b_utf8)  # 출력: b'\xec\x95\x88\xeb\x85\x95\xed\x95\x98\xec\x84\xb8\xec\
 s_back_utf8 = b_utf8.decode('utf-8')   # byte -> string (UTF-8 디코딩)
 print(s_back_utf8)  # 출력: 안녕하세요
 
------------------유니코드와 유니코드가 아닌 문자열 비교(파이썬 기본이 유니코드)----------------------------------------
+———————————————
+b = b"cisco"   
+print(type(b))
+print(b)
+
+s = "cisco"
+print(type(s))
+print(s)
+
+실행결과
+<class 'bytes'>
+b'cisco'
+<class 'str'>
+cisco
+———————————————
+b = "cisco".encode("ascii")
+print(type(b))
+print(b)
+
+s = b.decode("ascii")
+print(type(s))
+print(s)
+
+실행결과
+<class 'bytes'>
+b'cisco'
+<class 'str'>
+cisco
+
+-----------------유니코드와 유니코드가 아닌 문자열 비교(파이썬은 기본이 유니코드)----------------------------------------
 1. 유니코드 문자열
 정의: 전 세계의 문자(한글, 한자, 이모지, 알파벳, 아랍 문자 등)를 하나의 통합 코드 체계(Unicode Code Point) 로 표현한 문자열
 특징
