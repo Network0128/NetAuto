@@ -55,7 +55,7 @@ for device in (router1, router2, switch1, switch2, switch3):
             print(net_connect.send_command(cmd))
             print()
 ---------------------------------------------------------------------------
-ㅁ 모든 장비의 설정 파일 저장 ㅁ
+ㅁ 모든 장비의 설정 파일 저장 ㅁ 06_Configuration_changes에 더 많은 설정파일 저장 있음
 for device in (router1,router2,switch1,switch2,switch3):
     with ConnectHandler(**device) as net_connect:
         output = net_connect.send_command("show run")
