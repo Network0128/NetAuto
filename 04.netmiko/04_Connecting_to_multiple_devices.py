@@ -57,16 +57,15 @@ for device in (router1, router2, switch1, switch2, switch3):
             print()
 
 ---------------------------------------------------------------------------
-ㅁ 조회 후 결과 파일로 저장 까지 ㅁ
-commands=["show ip int brief","show ip arp"]
+ㅁ 모든 장비의 설정 파일 저장 ㅁ
 
-for device in (router1, router2, switch1, switch2, switch3):
+for device in (router1,router2,switch1,switch2,switch3):
     with ConnectHandler(**device) as net_connect:
-        for cmd in commands:
-            print(net_connect.find_prompt())
-            print(net_connect.send_command(cmd))
-            print()
-
+        output = net_connect.send_command("show run")
+        file_name = f"device_{device['host']}.txt"
+        with open(file_name,'w') as save_file:
+            save_file.write(output)
+        print(f"백업 성공: {file_name}")
 
 
 
