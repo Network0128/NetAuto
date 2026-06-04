@@ -44,7 +44,6 @@ for device in (router1, router2, switch1, switch2, switch3):
         print(net_connect.find_prompt())
         print(net_connect.send_command(command))
         print()
-
 ---------------------------------------------------------------------------
 ㅁ 여러 장비에 차례대로 리스트로 되어 있는 여러 명령어를 실행할 경우 ㅁ
 commands=["show ip int brief","show ip arp"]
@@ -55,10 +54,8 @@ for device in (router1, router2, switch1, switch2, switch3):
             print(net_connect.find_prompt())
             print(net_connect.send_command(cmd))
             print()
-
 ---------------------------------------------------------------------------
 ㅁ 모든 장비의 설정 파일 저장 ㅁ
-
 for device in (router1,router2,switch1,switch2,switch3):
     with ConnectHandler(**device) as net_connect:
         output = net_connect.send_command("show run")
@@ -66,6 +63,11 @@ for device in (router1,router2,switch1,switch2,switch3):
         with open(file_name,'w') as save_file:
             save_file.write(output)
         print(f"백업 성공: {file_name}")
+---------------------------------------------------------------------------
+ㅁ 모든 장비의 설정 파일 저장 - ㅁ
+
+
+
 
 
 
