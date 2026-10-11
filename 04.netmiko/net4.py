@@ -33,7 +33,7 @@ router1 = {
     'password': 'cisco'
 }
 
-with open('switch_design') as f:
+with open('switch_config') as f:
     lines = f.read().splitlines()
 print(lines)
 
@@ -44,7 +44,7 @@ for device in devices:
     print(output)
 
 #router_design 파일 열어서 실행
-with open('router_design') as f: # router_design 파일 읽기
+with open('router_config') as f: # router_config 파일 읽기
     lines = f.read().splitlines() # 파일 내용을 줄 단위로 리스트로 저장
 print(lines) # 파일 내용 출력
 
