@@ -1,7 +1,7 @@
 vtp mode transparent
 
-cdp disable
-lldp disable
+no cdp run
+no lldp run
 
 spanning-tree mode rapid-pvst
 spanning-tree portfast bpduguard default
