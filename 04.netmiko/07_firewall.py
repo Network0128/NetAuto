@@ -45,6 +45,7 @@ firewall = {
 }
 
 with ConnectHandler(**firewall) as net_connect:
+    print(net_connect.find_prompt())
     running_config = net_connect.send_command("sh run")
     with open(f'device_{firewall["host"]}','w') as f:
         f.write(running_config)
