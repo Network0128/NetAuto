@@ -24,7 +24,7 @@ switch3 = {
     'password': 'cisco'
 }
 
-with open('switch_design') as f: # switch_design 파일 읽기
+with open('switch_config') as f: # 파일 읽기
     lines = f.read().splitlines() # 파일 내용을 줄 단위로 리스트로 저장
 print(lines) # 결과 출력
 
